@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Limpyzas | Servicios de Housekeeping & Limpieza Profesional</title>
+    <title>Limpyzas | Servicios de Limpieza Profesional</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +16,10 @@
                 extend: {
                     colors: {
                         marca: {
-                            teal: '#1A9E96', /* Turquesa principal */
+                            teal: '#1A9E96',
                             tealDark: '#137A74',
-                            green: '#8BC53F', /* Verde manzana */
-                            forest: '#1B4D3E', /* Verde oscuro */
+                            green: '#8BC53F',
+                            forest: '#1B4D3E',
                             light: '#F4F9F8',
                             dark: '#1E293B',
                         }
@@ -49,23 +49,31 @@
         details > summary::-webkit-details-marker {
             display: none;
         }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-marca-dark bg-marca-light selection:bg-marca-teal selection:text-white">
 
     <!-- Navegación Principal -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
                 
-                <!-- Logo -->
+                <!-- Logo Grande -->
                 <div class="flex-shrink-0 flex items-center gap-3">
                     <div class="h-16 w-16 sm:h-20 sm:w-20 bg-white rounded-full flex items-center justify-center overflow-hidden border-2 border-marca-teal p-1 shadow-sm">
                         <img src="img/logo.jpg" alt="Logo Limpyzas" class="h-full w-full object-contain" onerror="this.style.display='none'">
                     </div>
                     <div class="flex flex-col justify-center">
                         <span class="font-sans font-black text-2xl sm:text-3xl tracking-wide text-marca-teal leading-none">Limpyzas</span>
-                        <span class="text-[10px] sm:text-[11px] text-marca-forest font-bold uppercase tracking-widest leading-tight mt-1">Especialistas en Housekeeping</span>
+                        <span class="text-[10px] sm:text-[11px] text-marca-forest font-bold uppercase tracking-widest leading-tight mt-1">Servicios de Limpieza</span>
                     </div>
                 </div>
 
@@ -73,11 +81,13 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#servicios" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Servicios</a>
                     <a href="#metraje" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Guía por M²</a>
-                    <a href="#detalles" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">¿Qué Incluye?</a>
-                    <a href="#cobertura" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Distritos</a>
+                    <a href="#nosotros" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Nosotros</a>
+                    <a href="#tips" class="text-sm font-extrabold text-marca-dark hover:text-marca-teal transition-colors flex items-center gap-1.5">
+                        <span>💡</span> Tips
+                    </a>
                     <a href="#faq" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Preguntas</a>
                     
-                    <a href="https://wa.me/51908643336?text=Hola,%20quisiera%20cotizar%20un%20servicio%20de%20Housekeeping." target="_blank" class="bg-marca-teal hover:bg-marca-tealDark text-white px-7 py-3 rounded-full text-sm font-bold transition-all shadow-md shadow-marca-teal/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <a href="https://wa.me/51908643336?text=Hola,%20quisiera%20cotizar%20un%20servicio%20de%20limpieza." target="_blank" class="bg-marca-teal hover:bg-marca-tealDark text-white px-7 py-3 rounded-full text-sm font-bold transition-all shadow-md shadow-marca-teal/20 flex items-center gap-2 transform hover:-translate-y-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         Cotizar Servicio
                     </a>
@@ -94,7 +104,7 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-white/98 backdrop-blur-md transform translate-x-full transition-transform duration-300 flex flex-col hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-white text-marca-dark transform translate-x-full transition-transform duration-300 flex flex-col hidden">
         <div class="p-6 flex justify-end">
             <button id="close-menu-btn" class="text-gray-500 p-3 focus:outline-none active:scale-95 transition-transform">
                 <svg class="h-10 w-10 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -104,8 +114,8 @@
             <div class="font-sans text-4xl text-marca-teal font-black mb-2">Limpyzas</div>
             <a href="#servicios" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Servicios</a>
             <a href="#metraje" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Guía por M²</a>
-            <a href="#detalles" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">¿Qué Incluye?</a>
-            <a href="#cobertura" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Distritos</a>
+            <a href="#nosotros" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Nosotros</a>
+            <a href="#tips" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors"><span>💡</span> Tips</a>
             <a href="#faq" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Preguntas Frecuentes</a>
             
             <a href="https://wa.me/51908643336" target="_blank" class="bg-marca-teal text-white px-10 py-4 rounded-full text-xl font-bold shadow-lg mt-6">WhatsApp: 908 643 336</a>
@@ -118,12 +128,17 @@
     </a>
 
     <main>
-        <!-- Hero Section Editorial (75vh) -->
+        <!-- Hero Section -->
         <header class="relative w-full flex items-center bg-marca-light py-12 lg:py-20 overflow-hidden min-h-[60vh] lg:min-h-[75vh]">
-            
+
+            <!-- Badge "Nuevo Tip" en la esquina superior derecha del Hero -->
+            <div class="absolute top-6 right-6 z-30 bg-marca-green text-white font-black px-5 py-2.5 rounded-full shadow-lg text-sm sm:text-base animate-bounce">
+                ✨ ¡Tenemos nuevo Tip!
+            </div>
+
             <div class="absolute top-0 right-0 w-full lg:w-[65%] h-[45vh] lg:h-full z-0">
-                <img src="img/portada.jpg" alt="Empresa de Housekeeping Limpyzas" class="w-full h-full object-cover object-center">
-                <div class="absolute inset-0 bg-gradient-to-t from-marca-light via-marca-light/10 to-transparent lg:bg-gradient-to-r lg:from-marca-light lg:via-marca-light/20 lg:to-transparent"></div>
+                <img src="img/portada.png" alt="Porta Limpyzas" class="w-full h-full object-cover object-center">
+                <div class="absolute inset-0 bg-gradient-to-t from-marca-light via-marca-light/10 to-transparent lg:bg-gradient-to-r lg:from-marca-light lg:via-marca-light/10 lg:to-transparent"></div>
             </div>
 
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center mt-[30vh] sm:mt-[35vh] lg:mt-0">
@@ -131,26 +146,29 @@
                 <div class="w-full lg:w-[55%] xl:w-[50%] bg-white/95 backdrop-blur-xl p-8 sm:p-10 lg:p-12 rounded-[2.5rem] shadow-[0_20px_50px_-12px_rgba(26,158,150,0.15)] border border-teal-50 fade-in-up">
                     
                     <span class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-marca-teal/10 text-marca-teal text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-5">
-                        ✨ Empresa Especializada en Housekeeping
+                        ✨ Tu Hogar Impecable y Desinfectado
                     </span>
                     
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-marca-dark tracking-tight mb-5 leading-[1.15]">
-                        ¿El tiempo no te alcanza? <br>
-                        <span class="text-marca-teal italic font-normal">Nosotros lo hacemos por ti.</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-marca-dark tracking-tight mb-3 leading-[1.15]">
+                        <span class="text-marca-teal">Limpyzas</span>
                     </h1>
+                    
+                    <h2 class="text-2xl sm:text-3xl font-bold text-marca-forest mb-5">
+                        ¿El tiempo no te alcanza? Nosotros lo hacemos por ti.
+                    </h2>
                     
                     <div class="w-14 h-1 bg-marca-green mb-5 rounded-full"></div>
                     
                     <p class="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed font-medium">
-                        Brindamos soluciones integrales de limpieza y orden para Casas, Departamentos y propiedades de Airbnb. Personal capacitado, confiable y enfocado en cada detalle.
+                        Servicio profesional de limpieza para Casas, Departamentos y propiedades de Airbnb. Personal capacitado, confiable y enfocado en cada detalle.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="https://wa.me/51908643336?text=Hola,%20deseo%20reservar%20mi%20servicio%20de%20limpieza." target="_blank" class="bg-marca-teal text-white px-7 py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-marca-tealDark transition-all shadow-lg shadow-marca-teal/30 text-center">
                             Agendar Servicio
                         </a>
-                        <a href="#metraje" class="bg-marca-light border border-marca-teal/20 text-marca-teal hover:bg-teal-50 px-7 py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-colors text-center">
-                            Guía por Metraje
+                        <a href="#servicios" class="bg-marca-light border border-marca-teal/20 text-marca-teal hover:bg-teal-50 px-7 py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-colors text-center">
+                            Ver Servicios
                         </a>
                     </div>
                     
@@ -158,123 +176,215 @@
             </div>
         </header>
 
-        <!-- Feature Bar ESTÁTICA -->
-        <div class="bg-white py-8 border-b border-gray-100 shadow-sm relative z-20">
+        <!-- Barra de Estadísticas Turquesa Animada -->
+        <section class="py-8 bg-marca-teal overflow-hidden text-white counter-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-200">
-                    <div class="py-3 md:py-0 text-marca-dark">
-                        <p class="font-sans font-black text-2xl text-marca-teal">100% Recomendados</p>
-                        <p class="text-sm text-gray-500 font-medium mt-1">Calificación perfecta por nuestros clientes</p>
-                    </div>
-                    <div class="py-3 md:py-0 text-marca-dark">
-                        <p class="font-sans font-black text-2xl text-marca-forest">Lunes a Domingo</p>
-                        <p class="text-sm text-gray-500 font-medium mt-1">Atención continua para tu tranquilidad</p>
-                    </div>
-                    <div class="py-3 md:py-0 text-marca-dark">
-                        <p class="font-sans font-black text-2xl text-marca-teal">Especialistas Airbnb</p>
-                        <p class="text-sm text-gray-500 font-medium mt-1">Gestión de limpieza y cambio de blancos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Barra de Estadísticas Animada -->
-        <section class="py-12 bg-marca-teal overflow-hidden counter-section">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/20">
-                    <div class="fade-in-up">
-                        <div class="flex items-center justify-center text-white text-4xl sm:text-5xl font-black mb-2">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 text-center divide-x divide-white/20 items-end">
+                    
+                    <!-- Columna 1 -->
+                    <div class="px-2 py-3 flex flex-col items-center justify-end h-full">
+                        <div class="text-3xl sm:text-5xl font-sans font-black mb-2 leading-none flex items-center justify-center">
                             <span class="counter" data-target="100">0</span>%
                         </div>
-                        <p class="text-teal-100 font-bold uppercase tracking-wider text-xs sm:text-sm">Clientes Satisfechos</p>
+                        <p class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-teal-100">
+                            Clientes Satisfechos
+                        </p>
                     </div>
-                    <div class="fade-in-up delay-100">
-                        <div class="flex items-center justify-center text-white text-4xl sm:text-5xl font-black mb-2">
+
+                    <!-- Columna 2 -->
+                    <div class="px-2 py-3 flex flex-col items-center justify-end h-full">
+                        <div class="text-3xl sm:text-5xl font-sans font-black mb-2 leading-none flex items-center justify-center">
                             <span class="counter" data-target="12">0</span>+
                         </div>
-                        <p class="text-teal-100 font-bold uppercase tracking-wider text-xs sm:text-sm">Distritos Cobertura</p>
+                        <p class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-teal-100">
+                            Distritos Cobertura
+                        </p>
                     </div>
-                    <div class="fade-in-up delay-200">
-                        <div class="flex items-center justify-center text-white text-4xl sm:text-5xl font-black mb-2">
+
+                    <!-- Columna 3 -->
+                    <div class="px-2 py-3 flex flex-col items-center justify-end h-full">
+                        <div class="text-3xl sm:text-5xl font-sans font-black mb-2 leading-none flex items-center justify-center">
                             7/7
                         </div>
-                        <p class="text-teal-100 font-bold uppercase tracking-wider text-xs sm:text-sm">Días de Atención</p>
+                        <p class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-teal-100">
+                            Días de Atención
+                        </p>
                     </div>
-                    <div class="fade-in-up delay-300">
-                        <div class="flex items-center justify-center text-white text-4xl sm:text-5xl font-black mb-2">
-                            <svg class="w-10 h-10 text-marca-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+
+                    <!-- Columna 4 -->
+                    <div class="px-2 py-3 flex flex-col items-center justify-end h-full">
+                        <div class="mb-2 flex items-center justify-center h-[36px] sm:h-[48px]">
+                            <div class="w-9 h-9 sm:w-11 sm:h-11 bg-marca-green rounded-full flex items-center justify-center text-white shadow-sm">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
                         </div>
-                        <p class="text-teal-100 font-bold uppercase tracking-wider text-xs sm:text-sm">Personal Calificado</p>
+                        <p class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-teal-100">
+                            Personal Calificado
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Nosotros -->
+        <section id="nosotros" class="py-12 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                    <span class="text-marca-teal font-bold tracking-widest uppercase text-sm mb-2 block">Nuestra Historia</span>
+                    <h2 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">Quiénes Somos</h2>
+                    <p class="text-gray-600 text-lg font-medium">Transformando el cuidado de tus espacios con agilidad y pulcritud.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-6 text-gray-600 text-base sm:text-lg leading-relaxed font-medium fade-in-up">
+                        <p>
+                            En 2026 iniciamos operaciones en Lima como la opción ideal para transformar el cuidado de tus espacios. Nos especializamos en diseñar planes de limpieza flexibles y adaptados a las necesidades reales de cada propiedad, desde hogares particulares hasta departamentos y alojamientos de Airbnb.
+                        </p>
+                        <p>
+                            Nuestro mayor valor es nuestro equipo: profesionales altamente capacitados, eficientes y de absoluta confianza. Nacimos con el firme propósito de consolidarnos en Lima y expandir muy pronto nuestra calidad de servicio a más ciudades de todo el Perú.
+                        </p>
+                        <div class="bg-marca-light p-6 rounded-2xl border border-marca-teal/20">
+                            <h4 class="font-bold text-marca-teal text-xl mb-2">💡 El origen de Limpyzas</h4>
+                            <p class="text-sm">
+                                Nuestra marca fusiona dos conceptos que definen cómo trabajamos: <strong>Limpy</strong> (por nuestro compromiso con la limpieza, el orden y la pulcritud) y <strong>Zas</strong> (por la rapidez, dinamismo y eficacia en cada labor).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center fade-in-up delay-100">
+                        <img src="img/mapache.png" alt="Equipo Limpyzas" class="rounded-3xl shadow-xl border-4 border-white max-h-[400px] object-cover">
                     </div>
                 </div>
+
+                <!-- Misión, Visión y Valores -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="bg-marca-light p-8 rounded-3xl border border-marca-teal/20 shadow-sm fade-in-up">
+                        <h4 class="text-2xl font-sans font-black text-marca-teal mb-4">🎯 Misión</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed font-medium">
+                            Brindar una excelente experiencia en limpieza profesional para garantizar la total satisfacción de nuestros clientes, transformando sus hogares y alojamientos en espacios impecables.
+                        </p>
+                    </div>
+
+                    <div class="bg-marca-light p-8 rounded-3xl border border-marca-teal/20 shadow-sm fade-in-up delay-100">
+                        <h4 class="text-2xl font-sans font-black text-marca-teal mb-4">🔭 Visión</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed font-medium">
+                            Expandir nuestra calidad de servicio hacia hogares y alojamientos en todo el Perú, consolidándonos como líderes en gestión de limpieza.
+                        </p>
+                    </div>
+
+                    <div class="bg-marca-light p-8 rounded-3xl border border-marca-teal/20 shadow-sm fade-in-up delay-200">
+                        <h4 class="text-2xl font-sans font-black text-marca-teal mb-4">⭐ Valores</h4>
+                        <ul class="space-y-2 text-sm text-gray-600 font-medium">
+                            <li><strong>• Integridad:</strong> Transparencia, respeto y ética.</li>
+                            <li><strong>• Compromiso:</strong> Honestidad y cuidado de tus bienes.</li>
+                            <li><strong>• Excelencia:</strong> Dedicación, orden y pulcritud absoluta.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- Modalidades de Servicio -->
-        <section id="servicios" class="py-24 bg-white relative">
+        <section id="servicios" class="py-8 bg-marca-light border-t border-gray-100 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                    <h2 class="text-marca-teal font-bold tracking-widest uppercase text-sm mb-2">Housekeeping Profesional</h2>
-                    <h3 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">Nuestros Servicios</h3>
+                    <h2 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">Nuestros Servicios</h2>
                     <p class="text-gray-600 text-lg font-medium">Soluciones a medida para cada tipo de inmueble y estilo de vida.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     
-                    <!-- Servicio 1: Limpiezas Ocupadas -->
-                    <div class="bg-marca-light rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal-100 flex flex-col fade-in-up group">
-                        <div class="h-56 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="Limpiezas Ocupadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-xl text-marca-teal">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                            </div>
+                    <!-- 1. Limpiezas por Horas -->
+                    <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal-100 flex flex-col fade-in-up group">
+                        <!-- Contenedor de la imagen en la tarjeta -->
+                        <div class="h-52 sm:h-60 md:h-72 w-full overflow-hidden relative">
+                            <img src="img/limpiezas por horas.jpg" alt="Limpiezas por Horas" class="w-full h-full object-cover object-top">
                         </div>
-                        <div class="p-8 flex-grow">
-                            <h4 class="text-2xl font-sans font-black text-marca-dark mb-2">Limpiezas Ocupadas</h4>
-                            <p class="text-marca-teal font-bold text-sm uppercase tracking-wide mb-4">Casas y Departamentos</p>
-                            <p class="text-gray-600 mb-6 text-sm font-medium leading-relaxed">Mantenimiento de rutina para hogares habitados. Orden y pulcritud continua en salas, dormitorios, cocina y baños.</p>
-                            <ul class="space-y-2 text-sm text-gray-600 font-medium">
-                                <li class="flex items-center gap-2"><span class="text-marca-green font-bold">✓</span> Limpieza normal de rutina</li>
-                                <li class="flex items-center gap-2"><span class="text-marca-green font-bold">✓</span> Flexibilidad de horas programadas</li>
-                            </ul>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-sans font-black text-marca-dark mb-1">Limpiezas por Horas</h3>
+                                <p class="text-marca-teal font-bold text-xs uppercase tracking-wide mb-3">Casas y Departamentos</p>
+                                <p class="text-gray-600 mb-4 text-xs font-medium leading-relaxed">Mantenimiento de rutina para hogares habitados. Orden y pulcritud continua en salas, dormitorios, cocina y baños.</p>
+                                <ul class="space-y-1.5 text-xs text-gray-600 font-medium mb-6">
+                                    <li class="flex items-center gap-1.5"><span class="text-marca-green font-bold">✓</span> Limpieza normal de rutina</li>
+                                    <li class="flex items-center gap-1.5"><span class="text-marca-green font-bold">✓</span> Flexibilidad de horas programadas</li>
+                                </ul>
+                            </div>
+                            <a href="https://wa.me/51908643336?text=Hola,%20quisiera%20cotizar%20Limpiezas%20por%20Horas." target="_blank" class="block text-center bg-marca-teal hover:bg-marca-tealDark text-white font-bold py-2.5 rounded-xl text-sm transition-colors shadow-sm">
+                                Cotizar Servicio
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Servicio 2: Áreas Específicas -->
-                    <div class="bg-marca-light rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal-100 flex flex-col fade-in-up delay-100 group">
-                        <div class="h-56 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Áreas Específicas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-xl text-marca-teal">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
+                    <!-- 2. Áreas Específicas -->
+                    <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal-100 flex flex-col fade-in-up delay-100 group">
+                        <!-- Contenedor de la imagen en la tarjeta -->
+                        <div class="h-52 sm:h-60 md:h-72 w-full overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Limpieza de áreas específicas" class="w-full h-full object-cover object-top">
                         </div>
-                        <div class="p-8 flex-grow">
-                            <h4 class="text-2xl font-sans font-black text-marca-dark mb-2">Áreas Específicas</h4>
-                            <p class="text-marca-teal font-bold text-sm uppercase tracking-wide mb-4">Atención Focalizada</p>
-                            <p class="text-gray-600 mb-6 text-sm font-medium leading-relaxed">Nos enfocamos en las zonas más críticas que requieran intervención rápida: desinfección profunda de baños, estufas o lavandería.</p>
-                            <ul class="space-y-2 text-sm text-gray-600 font-medium">
-                                <li class="flex items-center gap-2"><span class="text-marca-green font-bold">✓</span> Desengrasado de cocina y hornillos</li>
-                                <li class="flex items-center gap-2"><span class="text-marca-green font-bold">✓</span> Limpieza intensiva de lavamanos/retrete</li>
-                            </ul>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-sans font-black text-marca-dark mb-1">Áreas Específicas</h3>
+                                <p class="text-marca-teal font-bold text-xs uppercase tracking-wide mb-3">Atención Focalizada</p>
+                                <p class="text-gray-600 mb-4 text-xs font-medium leading-relaxed">Nos enfocamos en las zonas más críticas que requieran intervención rápida: desinfección profunda de baños, estufas o lavandería.</p>
+                                <ul class="space-y-1.5 text-xs text-gray-600 font-medium mb-6">
+                                    <li class="flex items-center gap-1.5"><span class="text-marca-green font-bold">✓</span> Desengrasado de cocina y hornillos</li>
+                                    <li class="flex items-center gap-1.5"><span class="text-marca-green font-bold">✓</span> Limpieza intensiva de lavamanos/retrete</li>
+                                </ul>
+                            </div>
+                            <a href="https://wa.me/51908643336?text=Hola,%20quisiera%20cotizar%20Áreas%20Específicas." target="_blank" class="block text-center bg-marca-teal hover:bg-marca-tealDark text-white font-bold py-2.5 rounded-xl text-sm transition-colors shadow-sm">
+                                Cotizar Servicio
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Servicio 3: Airbnb -->
-                    <div class="bg-marca-forest text-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-emerald-900 flex flex-col fade-in-up delay-200 group relative">
-                        <div class="absolute top-0 right-0 bg-marca-green text-marca-dark text-xs font-extrabold px-4 py-1.5 rounded-bl-xl z-20 uppercase tracking-wider">
+                    <!-- 3. Limpiezas Profundas -->
+                    <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal-100 flex flex-col fade-in-up delay-200 group">
+                    <div class="h-52 sm:h-60 md:h-72 w-full overflow-hidden relative">
+                        <img src="img/limpiezas profundas.jpg" alt="Limpiezas profunda" class="w-full h-full object-cover object-top">
+                    </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-sans font-black text-marca-dark mb-1">Limpiezas Profundas</h3>
+                                <p class="text-marca-teal font-bold text-xs uppercase tracking-wide mb-3">Integral y Detallada</p>
+                                <p class="text-gray-600 mb-4 text-xs font-medium leading-relaxed">Ofrecemos una limpieza integral de toda la propiedad, que incluye el interior y exterior de muebles, vitrinas y electrodomésticos.</p>
+                                <ul class="space-y-1.5 text-xs text-gray-600 font-medium mb-6">
+                                    <li class="flex items-center gap-1.5"><span class="text-marca-green font-bold">✓</span> Interior y exterior de muebles y vitrinas</li>
+                                    <li class="flex items-center gap-1.5"><span class="text-marca-green font-bold">✓</span> Electrodomésticos a fondo</li>
+                                </ul>
+                            </div>
+                            <a href="https://wa.me/51908643336?text=Hola,%20quisiera%20cotizar%20Limpiezas%20Profundas." target="_blank" class="block text-center bg-marca-teal hover:bg-marca-tealDark text-white font-bold py-2.5 rounded-xl text-sm transition-colors shadow-sm">
+                                Cotizar Servicio
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Servicio para Airbnb -->
+                    <div class="bg-marca-forest text-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-emerald-900 flex flex-col fade-in-up delay-300 group relative">
+                        <div class="absolute top-0 right-0 bg-marca-green text-marca-dark text-[10px] font-extrabold px-3 py-1 rounded-bl-xl z-20 uppercase tracking-wider">
                             Top Airbnb
                         </div>
-                        <div class="h-56 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80" alt="Limpieza para Airbnb" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                        <div class="h-52 sm:h-60 md:h-72 w-full overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80" alt="Limpieza para Airbnb" class="w-full h-full object-cover object-top">
                         </div>
-                        <div class="p-8 flex-grow">
-                            <h4 class="text-2xl font-sans font-black mb-2">Servicio para Airbnb</h4>
-                            <p class="text-marca-green font-bold text-sm uppercase tracking-wide mb-4">Turnover Garantizado</p>
-                            <p class="text-gray-200 mb-6 text-sm font-medium leading-relaxed">Dejamos tu propiedad impecable entre estancias. Incluye cambio de blancos (sábanas, duvet, fundas) y reposición de toallas.</p>
-                            <ul class="space-y-2 text-sm text-gray-200 font-medium">
-                                <li class="flex items-center gap-2"><span class="text-marca-green font-bold">✓</span> Tendido profesional de camas</li>
-                                <li class="flex items-center gap-2"><span class="text-marca-green font-bold">✓</span> Estándar hotelero de pulcritud</li>
-                            </ul>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-sans font-black mb-1">Servicio para Airbnb</h3>
+                                <p class="text-marca-green font-bold text-xs uppercase tracking-wide mb-3">Turnover Garantizado</p>
+                                <p class="text-gray-200 mb-3 text-xs font-medium leading-relaxed">Dejamos tu propiedad impecable entre estancias. Incluye cambio de blancos y reposición de toallas.</p>
+                                <p class="text-[11px] text-amber-200 mb-4 italic">*(Nota: El propietario brinda el juego de blancos y toallas)*</p>
+                                <ul class="space-y-1.5 text-xs text-gray-200 font-medium mb-6">
+                                    <li class="flex items-center gap-1.5"><span class="text-marca-green font-bold">✓</span> Tendido profesional de camas</li>
+                                    <li class="flex items-center gap-1.5"><span class="text-marca-green font-bold">✓</span> Estándar hotelero de pulcritud</li>
+                                </ul>
+                            </div>
+                            <a href="https://wa.me/51908643336?text=Hola,%20quisiera%20cotizar%20Servicio%20para%20Airbnb." target="_blank" class="block text-center bg-marca-green hover:bg-green-600 text-marca-dark font-bold py-2.5 rounded-xl text-sm transition-colors shadow-sm">
+                                Cotizar Servicio
+                            </a>
                         </div>
                     </div>
 
@@ -282,339 +392,291 @@
             </div>
         </section>
 
-        <!-- SECCIÓN NUEVA: Guía de Horas Recomendadas por M² -->
-        <section id="metraje" class="py-24 bg-marca-light border-t border-gray-100 relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+        <!-- Guía por M² (Padding inferior reducido) -->
+        <section id="metraje" class="pt-12 md:pt-16 pb-8 md:pb-12 bg-white border-t border-gray-100 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                
+                <!-- Badge "Desde S/ 80.00" -->
+                <div class="inline-block md:absolute md:-top-4 md:right-2 lg:right-4 bg-marca-green text-white font-black px-5 py-2.5 rounded-full shadow-lg text-sm sm:text-base animate-bounce mb-4 md:mb-0 z-20">
+                    🏷️ ¡Desde S/ 80.00!
+                </div>
+
+                <div class="text-center max-w-3xl mx-auto mb-10 fade-in-up">
                     <span class="text-marca-teal font-bold tracking-widest uppercase text-sm mb-2 block">Calcula Tu Servicio</span>
-                    <h3 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">¿Cuántas Horas Necesita Tu Hogar?</h3>
-                    <p class="text-gray-600 text-lg font-medium">Te orientamos según el área total en metros cuadrados para lograr resultados óptimos.</p>
+                    <h2 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-4">¿Cuántas Horas Necesita Tu Hogar?</h2>
+                    <p class="text-gray-600 text-base md:text-lg font-medium">Te orientamos según el área total en metros cuadrados para lograr resultados óptimos.</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                    
-                    <!-- 4 Horas -->
-                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up hover:border-marca-teal transition-colors">
-                        <div class="bg-teal-50 text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4">4 HORAS</div>
+                    <div class="bg-marca-light p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up hover:border-marca-teal transition-colors">
+                        <div class="bg-white text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4 shadow-sm">4 HORAS</div>
                         <p class="font-extrabold text-marca-dark text-sm mb-2">Área Referencial:</p>
                         <p class="text-marca-teal font-extrabold text-lg mb-4">75 M² a 80 M²</p>
                         <p class="text-xs text-gray-500 font-medium">Limpieza de rutina: sala, comedor, cocina, habitaciones, balcón y lavandería.</p>
                     </div>
 
-                    <!-- 5 Horas -->
-                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up delay-100 hover:border-marca-teal transition-colors">
-                        <div class="bg-teal-50 text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4">5 HORAS</div>
+                    <div class="bg-marca-light p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up delay-100 hover:border-marca-teal transition-colors">
+                        <div class="bg-white text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4 shadow-sm">5 HORAS</div>
                         <p class="font-extrabold text-marca-dark text-sm mb-2">Área Referencial:</p>
                         <p class="text-marca-teal font-extrabold text-lg mb-4">Menor a 100 M²</p>
                         <p class="text-xs text-gray-500 font-medium">Limpieza de rutina: sala, comedor, cocina, habitaciones, balcón y lavandería.</p>
                     </div>
 
-                    <!-- 6 Horas -->
-                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up delay-200 hover:border-marca-teal transition-colors">
-                        <div class="bg-teal-50 text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4">6 HORAS</div>
+                    <div class="bg-marca-light p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up delay-200 hover:border-marca-teal transition-colors">
+                        <div class="bg-white text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4 shadow-sm">6 HORAS</div>
                         <p class="font-extrabold text-marca-dark text-sm mb-2">Área Referencial:</p>
                         <p class="text-marca-teal font-extrabold text-lg mb-4">Menor a 120 M²</p>
                         <p class="text-xs text-gray-500 font-medium">Limpieza de rutina: sala, comedor, cocina, habitaciones, balcón y lavandería.</p>
                     </div>
 
-                    <!-- 7 Horas -->
-                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up delay-300 hover:border-marca-teal transition-colors">
-                        <div class="bg-teal-50 text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4">7 HORAS</div>
+                    <div class="bg-marca-light p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up delay-300 hover:border-marca-teal transition-colors">
+                        <div class="bg-white text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4 shadow-sm">7 HORAS</div>
                         <p class="font-extrabold text-marca-dark text-sm mb-2">Área Referencial:</p>
                         <p class="text-marca-teal font-extrabold text-lg mb-4">Menor a 150 M²</p>
                         <p class="text-xs text-gray-500 font-medium">Limpieza de rutina: sala, comedor, cocina, habitaciones, balcón y lavandería.</p>
                     </div>
 
-                    <!-- 8 Horas -->
-                    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up delay-300 hover:border-marca-teal transition-colors">
-                        <div class="bg-teal-50 text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4">8 HORAS</div>
+                    <div class="bg-marca-light p-6 rounded-3xl border border-gray-200 shadow-sm text-center fade-in-up delay-300 hover:border-marca-teal transition-colors">
+                        <div class="bg-white text-marca-teal font-black text-xl py-2 px-4 rounded-xl mb-4 shadow-sm">8 HORAS</div>
                         <p class="font-extrabold text-marca-dark text-sm mb-2">Área Referencial:</p>
                         <p class="text-marca-teal font-extrabold text-lg mb-4">Menor a 180 M²</p>
                         <p class="text-xs text-gray-500 font-medium">Limpieza de rutina: sala, comedor, cocina, habitaciones, balcón y lavandería.</p>
                     </div>
-
                 </div>
+            </div>
+        </section>
 
-                <!-- Nota Aclaratoria Insumos -->
-                <div class="mt-12 bg-white rounded-2xl p-6 border border-marca-teal/20 text-center max-w-3xl mx-auto shadow-sm fade-in-up">
-                    <p class="text-sm font-medium text-gray-600">
-                        📌 <strong class="text-marca-dark">Nota sobre Insumos:</strong> El servicio utiliza los productos de limpieza del hogar. Si deseas que nosotros llevemos nuestro kit completo de productos o tu propiedad supera los 180 M², ¡escríbenos para una cotización especial!
+        <!-- Tips de Limpieza (Padding superior reducido pt-8 md:pt-12) -->
+        <section id="tips" class="pt-8 md:pt-12 pb-16 md:pb-24 bg-marca-light border-t border-gray-100 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-10 md:mb-14 fade-in-up">
+                    <span class="text-marca-green font-extrabold tracking-widest uppercase text-xs md:text-sm mb-2 block">💡 Consejos Útiles</span>
+                    
+                    <div class="flex items-center justify-center gap-3 sm:gap-5 mb-3">
+                        <img src="img/mapache2.png" alt="Mascota Limpyzas" class="w-14 sm:w-18 md:w-20 h-auto object-contain drop-shadow-md shrink-0" onerror="this.src='mapache2.png'">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-black text-marca-dark leading-none">
+                            Tips de Limpieza
+                        </h2>
+                    </div>
+
+                    <p class="text-gray-600 text-sm md:text-base font-medium">
+                        Consejos útiles para un hogar impecable. ¡Cada miércoles tenemos un nuevo tip para ti!
                     </p>
                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-200 fade-in-up flex flex-col">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="img/vidrios.png" alt="Cristales y Ventanas" class="w-full h-full object-cover">
+                            <div class="absolute bottom-3 left-3 bg-marca-teal text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Cristales y Ventanas</div>
+                        </div>
+                        <div class="p-8 flex-grow">
+                            <h3 class="text-2xl font-sans font-black text-marca-dark mb-3">5 Secretos para Ventanas y Vidrios Sin Rayas</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">1. Limpia en días nublados o cuando no haya sol directo</p>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">2. Usa un paño de microfibra limpio</p>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">3. No uses demasiado producto</p>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">4. Seca con movimientos en una sola dirección</p>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">5. Limpia también los marcos y rieles</p>
+                            
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-200 fade-in-up delay-100 flex flex-col">
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Baños impecables" class="w-full h-full object-cover">
+                            <div class="absolute bottom-3 left-3 bg-marca-forest text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Baños</div>
+                        </div>
+                        <div class="p-8 flex-grow">
+                            <h3 class="text-2xl font-sans font-black text-marca-dark mb-3">Secreto para un Inodoro Impecable</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">1. Rocía vinagre puro en la taza del inodoro, deja reposar unos minutos y frota con una escobilla para eliminar sarro de forma ecológica.</p>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">2. Espolvorea media taza de bicarbonato de sodio dentro de la taza del inodoro y déjalo actuar entre 10 y 15 minutos. Luego frota con una escobilla y descarga el agua para eliminar malos olores, manchas y restos de suciedad de forma natural.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- ¿Qué Incluye? (Detalle por Ambientes) -->
-        <section id="detalles" class="py-24 bg-white border-t border-gray-100 relative">
+        <!-- Testimonios / Reseñas (Con círculo de comillas y slider navegable en escritorio) -->
+        <section class="py-8 bg-white border-t border-gray-100 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                    <span class="text-marca-teal font-bold tracking-widest uppercase text-sm mb-2 block">Detalle Minucioso</span>
-                    <h3 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">Aspectos Generales del Servicio</h3>
-                    <p class="text-gray-600 text-lg font-medium">Transparencia total sobre las tareas que realizamos en cada espacio de tu inmueble.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 fade-in-up">
+                    <div>
+                        <span class="text-marca-teal font-bold tracking-widest uppercase text-sm mb-2 block">Opiniones 100% Positivas</span>
+                        <h2 class="text-3xl md:text-5xl font-sans font-black text-marca-dark">Lo que dicen nuestros clientes</h2>
+                    </div>
                     
-                    <!-- Ambiente 1: Sala / Comedor -->
-                    <div class="bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-100 fade-in-up">
-                        <div class="w-12 h-12 bg-white text-marca-teal rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H5a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                        </div>
-                        <h4 class="font-sans font-extrabold text-xl text-marca-dark mb-4">Sala y Habitaciones</h4>
-                        <ul class="space-y-3 text-sm text-gray-600 font-medium">
-                            <li class="flex items-start gap-2">• Desempolvado de superficies, muebles, repisas, manijas y marcos.</li>
-                            <li class="flex items-start gap-2">• Barrido, trapeado y aspirado de alfombras.</li>
-                            <li class="flex items-start gap-2">• Encerado y lustrado de pisos.</li>
-                            <li class="flex items-start gap-2">• Limpieza de vidrios interiores y espejos.</li>
-                            <li class="flex items-start gap-2">• Cambio de blancos y fundas (en Airbnb).</li>
-                        </ul>
-                    </div>
-
-                    <!-- Ambiente 2: Cocina -->
-                    <div class="bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-100 fade-in-up delay-100">
-                        <div class="w-12 h-12 bg-white text-marca-teal rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"></path></svg>
-                        </div>
-                        <h4 class="font-sans font-extrabold text-xl text-marca-dark mb-4">Cocina</h4>
-                        <ul class="space-y-3 text-sm text-gray-600 font-medium">
-                            <li class="flex items-start gap-2">• Limpieza de barras, encimeras, mesones y salpicaderos.</li>
-                            <li class="flex items-start gap-2">• Limpieza externa de refrigerador y horno de cocina.</li>
-                            <li class="flex items-start gap-2">• Limpieza externa de microondas, cafetera y licuadora.</li>
-                            <li class="flex items-start gap-2">• Lavado y pulido de fregaderos.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Ambiente 3: Baños -->
-                    <div class="bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-100 fade-in-up delay-200">
-                        <div class="w-12 h-12 bg-white text-marca-teal rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                        </div>
-                        <h4 class="font-sans font-extrabold text-xl text-marca-dark mb-4">Baños y Desinfección</h4>
-                        <ul class="space-y-3 text-sm text-gray-600 font-medium">
-                            <li class="flex items-start gap-2">• Desinfección completa del interior, exterior y base del inodoro.</li>
-                            <li class="flex items-start gap-2">• Lavado de azulejos y eliminación de residuos de jabón en ducha/tina.</li>
-                            <li class="flex items-start gap-2">• Limpieza de puertas de vidrio.</li>
-                            <li class="flex items-start gap-2">• Pulido de lavabo, encimera y grifos cromados.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Ambiente 4: Lavandería y Basura -->
-                    <div class="bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-100 fade-in-up delay-300">
-                        <div class="w-12 h-12 bg-white text-marca-teal rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </div>
-                        <h4 class="font-sans font-extrabold text-xl text-marca-dark mb-4">Lavandería y Basura</h4>
-                        <ul class="space-y-3 text-sm text-gray-600 font-medium">
-                            <li class="flex items-start gap-2">• Limpieza superficial de la lavadora y secadora.</li>
-                            <li class="flex items-start gap-2">• Limpieza profunda del lavadero de ropa.</li>
-                            <li class="flex items-start gap-2">• Vaciado de papeleras de todo el hogar.</li>
-                            <li class="flex items-start gap-2">• Colocación de bolsas de basura limpias.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Checklist de Insumos Sugeridos -->
-        <section class="py-24 bg-marca-light border-t border-gray-100 relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                    <span class="text-marca-green font-extrabold tracking-widest uppercase text-sm mb-2 block">Preparación del Servicio</span>
-                    <h3 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">Checklist de Productos Recomendados</h3>
-                    <p class="text-gray-600 text-lg font-medium">Para garantizar la máxima eficiencia, sugerimos contar con estos insumos básicos en tu hogar:</p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-amber-50/60 p-6 rounded-3xl border border-amber-200/60 fade-in-up">
-                        <h4 class="font-sans font-extrabold text-lg text-amber-900 mb-4 flex items-center gap-2">🧹 Kit Básico</h4>
-                        <ul class="space-y-2 text-sm text-amber-950 font-medium">
-                            <li>• Escoba y Recogedor</li>
-                            <li>• Trapeador / Mopa</li>
-                            <li>• Paños de microfibra</li>
-                            <li>• Bolsas de basura</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-emerald-50/60 p-6 rounded-3xl border border-emerald-200/60 fade-in-up delay-100">
-                        <h4 class="font-sans font-extrabold text-lg text-emerald-900 mb-4 flex items-center gap-2">🛋️ Estar y Dormitorios</h4>
-                        <ul class="space-y-2 text-sm text-emerald-950 font-medium">
-                            <li>• Limpiavidrios</li>
-                            <li>• Limpia pisos o cera</li>
-                            <li>• Plumero o paños para polvo</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-sky-50/60 p-6 rounded-3xl border border-sky-200/60 fade-in-up delay-200">
-                        <h4 class="font-sans font-extrabold text-lg text-sky-900 mb-4 flex items-center gap-2">🍽️ Cocina y Lavandería</h4>
-                        <ul class="space-y-2 text-sm text-sky-950 font-medium">
-                            <li>• Limpiador multiusos</li>
-                            <li>• Detergente lavavajillas</li>
-                            <li>• Desengrasante potente</li>
-                            <li>• Detergente ropa (polvo/líquido)</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-purple-50/60 p-6 rounded-3xl border border-purple-200/60 fade-in-up delay-300">
-                        <h4 class="font-sans font-extrabold text-lg text-purple-900 mb-4 flex items-center gap-2">🚿 Baños y Desinfección</h4>
-                        <ul class="space-y-2 text-sm text-purple-950 font-medium">
-                            <li>• Lejía o desinfectante</li>
-                            <li>• Jabón líquido</li>
-                            <li>• Quitasarro sanitarios</li>
-                            <li>• Desatorador</li>
-                        </ul>
+                    <!-- Botones de Navegación para Escritorio/Móvil -->
+                    <div class="flex gap-3 mt-6 md:mt-0">
+                        <button id="prev-review" aria-label="Anterior" class="w-12 h-12 rounded-full bg-marca-light border border-gray-200 text-marca-teal hover:bg-marca-teal hover:text-white transition-all flex items-center justify-center shadow-sm active:scale-95">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button id="next-review" aria-label="Siguiente" class="w-12 h-12 rounded-full bg-marca-light border border-gray-200 text-marca-teal hover:bg-marca-teal hover:text-white transition-all flex items-center justify-center shadow-sm active:scale-95">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Cobertura de Distritos -->
-        <section id="cobertura" class="py-24 bg-marca-teal text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                    <span class="text-teal-200 font-bold tracking-widest uppercase text-sm mb-2 block">Zona de Atención</span>
-                    <h3 class="text-3xl md:text-5xl font-sans font-black mb-6">Llegamos Hasta Tu Distrito</h3>
-                    <p class="text-teal-100 text-lg font-medium">Brindamos cobertura completa en las principales zonas de Lima.</p>
-                </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center fade-in-up delay-100">
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 Surco</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 Miraflores</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 San Isidro</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 La Molina</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 San Borja</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 Barranco</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 Jesús María</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 Lince</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 Magdalena</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 San Miguel</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 Surquillo</div>
-                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 font-extrabold">📍 Pueblo Libre</div>
-                </div>
-
-                <p class="text-center text-teal-100 font-bold text-sm mt-10 fade-in-up delay-200">
-                    📢 ¿Tu distrito no aparece en la lista? ¡Consúltanos por WhatsApp! También llegamos a zonas cercanas.
-                </p>
-            </div>
-        </section>
-
-        <!-- Transparencia: Lo que NO incluye -->
-        <section class="py-24 bg-white border-t border-gray-100 relative">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 fade-in-up">
-                    <span class="text-rose-500 font-bold tracking-widest uppercase text-sm mb-2 block">Información Transparente</span>
-                    <h3 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">Lo que NO incluye el servicio</h3>
-                    <p class="text-gray-600 text-lg font-medium">Por la seguridad de nuestro personal y para garantizar la excelencia, delimitamos nuestras funciones:</p>
-                </div>
-
-                <div class="bg-rose-50/50 rounded-3xl p-8 md:p-12 border border-rose-100 shadow-sm fade-in-up delay-100">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8 text-sm font-medium text-gray-700">
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Limpiar dentro del clóset o armarios.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Lavar utensilios o vajilla de cocina.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Realizar compras para el cliente.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Recoger delivery o encomiendas.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Lavado y planchado de ropa.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Lavado de alfombras/cortinas/muebles.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Cocinar para el cliente.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Trabajos de jardinería.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Paseo o cuidado de mascotas.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Cuidado de niños, bebés o adultos mayores.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Limpieza post-construcción / remodelación.</div>
-                        <div class="flex items-center gap-2"><span class="text-rose-500 font-bold">✕</span> Limpieza en alturas (exterior ventanas).</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonios Ficticios -->
-        <section class="py-24 bg-marca-light border-t border-gray-100 relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                    <span class="text-marca-teal font-bold tracking-widest uppercase text-sm mb-2 block">Opiniones 100% Positivas</span>
-                    <h3 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">Lo que dicen nuestras clientas</h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-gray-100 fade-in-up relative mt-6">
-                        <div class="absolute -top-6 left-8 bg-marca-teal text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+                <!-- Contenedor del Slider -->
+                <div id="reviews-container" class="flex overflow-x-auto space-x-6 pt-6 pb-6 no-scrollbar snap-x scroll-smooth fade-in-up delay-100 cursor-grab active:cursor-grabbing select-none">
+                    
+                    <!-- Review 1 -->
+                    <div class="min-w-[300px] sm:min-w-[360px] md:min-w-[380px] bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-200/80 snap-center flex flex-col justify-between relative mt-4">
+                        <div class="absolute -top-5 left-6 bg-marca-teal text-white w-11 h-11 rounded-full flex items-center justify-center shadow-md">
                             <svg class="w-5 h-5 text-marca-green" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.995 2.151c-2.433.917-3.995 3.638-3.995 5.849h3.983v10h-9.983z"/></svg>
                         </div>
-                        <div class="flex text-amber-400 mb-4 mt-4">★★★★★</div>
-                        <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"Excelente servicio de housekeeping para mi dpto en Miraflores. El personal es súper puntual y educado. La cocina y baños quedaron relucientes."</p>
+                        <div>
+                            <div class="flex text-amber-400 mb-4 pt-2 text-lg">★★★★★</div>
+                            <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"Excelente servicio de limpieza para mi dpto en Miraflores. El personal es súper puntual y educado. La cocina y baños quedaron relucientes."</p>
+                        </div>
                         <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Patricia Valdivia</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-gray-100 fade-in-up delay-100 relative mt-6">
-                        <div class="absolute -top-6 left-8 bg-marca-teal text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+                    <!-- Review 2 -->
+                    <div class="min-w-[300px] sm:min-w-[360px] md:min-w-[380px] bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-200/80 snap-center flex flex-col justify-between relative mt-4">
+                        <div class="absolute -top-5 left-6 bg-marca-teal text-white w-11 h-11 rounded-full flex items-center justify-center shadow-md">
                             <svg class="w-5 h-5 text-marca-green" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.995 2.151c-2.433.917-3.995 3.638-3.995 5.849h3.983v10h-9.983z"/></svg>
                         </div>
-                        <div class="flex text-amber-400 mb-4 mt-4">★★★★★</div>
-                        <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"Administro tres departamentos de Airbnb en Barranco y Limpyzas es mi mejor aliado. El cambio de sábanas y limpieza queda nivel hotelero."</p>
+                        <div>
+                            <div class="flex text-amber-400 mb-4 pt-2 text-lg">★★★★★</div>
+                            <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"Administro tres departamentos de Airbnb en Barranco y Limpyzas es mi mejor aliado. El cambio de sábanas y limpieza queda nivel hotelero."</p>
+                        </div>
                         <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Rodrigo Thorne</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-gray-100 fade-in-up delay-200 relative mt-6">
-                        <div class="absolute -top-6 left-8 bg-marca-teal text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
+                    <!-- Review 3 -->
+                    <div class="min-w-[300px] sm:min-w-[360px] md:min-w-[380px] bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-200/80 snap-center flex flex-col justify-between relative mt-4">
+                        <div class="absolute -top-5 left-6 bg-marca-teal text-white w-11 h-11 rounded-full flex items-center justify-center shadow-md">
                             <svg class="w-5 h-5 text-marca-green" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.995 2.151c-2.433.917-3.995 3.638-3.995 5.849h3.983v10h-9.983z"/></svg>
                         </div>
-                        <div class="flex text-amber-400 mb-4 mt-4">★★★★★</div>
-                        <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"Pedí el paquete de 5 horas para mi dpto en Surco. La atención por WhatsApp fue veloz y el trabajo súper detallado. ¡Totalmente recomendados!"</p>
+                        <div>
+                            <div class="flex text-amber-400 mb-4 pt-2 text-lg">★★★★★</div>
+                            <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"Pedí el paquete de horas para mi dpto en Surco. La atención por WhatsApp fue veloz y el trabajo súper detallado. ¡Totalmente recomendados!"</p>
+                        </div>
                         <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Mariana Benavides</p>
                     </div>
+
+                    <!-- Review 4 -->
+                    <div class="min-w-[300px] sm:min-w-[360px] md:min-w-[380px] bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-200/80 snap-center flex flex-col justify-between relative mt-4">
+                        <div class="absolute -top-5 left-6 bg-marca-teal text-white w-11 h-11 rounded-full flex items-center justify-center shadow-md">
+                            <svg class="w-5 h-5 text-marca-green" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.995 2.151c-2.433.917-3.995 3.638-3.995 5.849h3.983v10h-9.983z"/></svg>
+                        </div>
+                        <div>
+                            <div class="flex text-amber-400 mb-4 pt-2 text-lg">★★★★★</div>
+                            <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"La limpieza fue muy completa y mi hogar quedó como nuevo. ¡100% recomendado!"</p>
+                        </div>
+                        <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Giovanna Ruthnick</p>
+                    </div>
+
+                    <!-- Review 5 -->
+                    <div class="min-w-[300px] sm:min-w-[360px] md:min-w-[380px] bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-200/80 snap-center flex flex-col justify-between relative mt-4">
+                        <div class="absolute -top-5 left-6 bg-marca-teal text-white w-11 h-11 rounded-full flex items-center justify-center shadow-md">
+                            <svg class="w-5 h-5 text-marca-green" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.995 2.151c-2.433.917-3.995 3.638-3.995 5.849h3.983v10h-9.983z"/></svg>
+                        </div>
+                        <div>
+                            <div class="flex text-amber-400 mb-4 pt-2 text-lg">★★★★★</div>
+                            <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"La limpieza es excelente y siempre dejan todo listo para la siguiente reserva. Servicio muy confiable."</p>
+                        </div>
+                        <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Emanuel</p>
+                    </div>
+
+                    <!-- Review 6 -->
+                    <div class="min-w-[300px] sm:min-w-[360px] md:min-w-[380px] bg-marca-light p-8 rounded-3xl shadow-sm border border-gray-200/80 snap-center flex flex-col justify-between relative mt-4">
+                        <div class="absolute -top-5 left-6 bg-marca-teal text-white w-11 h-11 rounded-full flex items-center justify-center shadow-md">
+                            <svg class="w-5 h-5 text-marca-green" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.995 2.151c-2.433.917-3.995 3.638-3.995 5.849h3.983v10h-9.983z"/></svg>
+                        </div>
+                        <div>
+                            <div class="flex text-amber-400 mb-4 pt-2 text-lg">★★★★★</div>
+                            <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"Quedé muy satisfecha con el servicio de Limpyzas, mi depa se ve increíble."</p>
+                        </div>
+                        <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Ana</p>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN FAQ -->
-        <section id="faq" class="py-24 bg-white border-t border-gray-100 relative">
+        <!-- Sección FAQ con Espaciado Optimizado -->
+        <section id="faq" class="py-8 md:py-10 bg-marca-light border-t border-gray-100 relative">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 fade-in-up">
-                    <span class="text-marca-teal font-bold tracking-widest uppercase text-sm mb-2 block">Dudas Frecuentes</span>
-                    <h3 class="text-3xl md:text-5xl font-sans font-black text-marca-dark mb-6">Preguntas Frecuentes</h3>
+                
+                <!-- Encabezado con margen reducido (mb-8) -->
+                <div class="text-center mb-8 fade-in-up">
+                    <h2 class="text-3xl md:text-5xl font-sans font-black text-marca-dark">Preguntas Frecuentes</h2>
                 </div>
 
                 <div class="space-y-4 fade-in-up delay-100">
-                    <details class="group bg-marca-light rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
+                    
+                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
                         <summary class="flex justify-between items-center font-sans font-extrabold text-lg text-marca-dark p-6 outline-none">
-                            ¿Debo proporcionar los productos de limpieza?
+                            ¿Debo proporcionar los productos de limpieza y qué insumos se sugieren?
                             <span class="transition-transform duration-300 group-open:rotate-180 text-marca-teal">
                                 <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                             </span>
                         </summary>
-                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed">
-                            Los paquetes estándar utilizan los productos disponibles en tu hogar. Sin embargo, si deseas que nuestro equipo lleve el kit completo de insumos de limpieza, puedes solicitarlo por WhatsApp para brindarte una cotización adaptada.
+                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed space-y-3">
+                            <p>Los paquetes estándar utilizan los productos disponibles en tu hogar. Sin embargo, si deseas que nuestro equipo lleve el kit completo de insumos, puedes solicitarlo por WhatsApp para brindarte una cotización adaptada.</p>
+                            <p><strong>Kit sugerido en casa:</strong> Escoba, recogedor, trapeador, paños de microfibra, bolsas de basura, limpiavidrios, limpia pisos, limpiador multiusos, desengrasante, detergente, lejía, jabón líquido y quitasarro.</p>
                         </div>
                     </details>
 
-                    <details class="group bg-marca-light rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
+                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
                         <summary class="flex justify-between items-center font-sans font-extrabold text-lg text-marca-dark p-6 outline-none">
-                            ¿Atienden domingos y feriados?
+                            ¿Atienden domingos y feriados y qué distritos cubren?
                             <span class="transition-transform duration-300 group-open:rotate-180 text-marca-teal">
                                 <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                             </span>
                         </summary>
-                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed">
-                            ¡Sí! Nuestro servicio está disponible de Lunes a Domingo. Te sugerimos agendar con anticipación para asegurar el bloque de horas que mejor se ajuste a tu horario.
+                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed space-y-3">
+                            <p>¡Sí! Nuestro servicio está disponible de Lunes a Domingo. Te sugerimos agendar con anticipación.</p>
+                            <p><strong>Distritos de cobertura:</strong> Surco, Miraflores, Barranco, San Isidro, San Borja, San Miguel, La Molina, Magdalena, Jesús María, Lince, Surquillo, Pueblo Libre y zonas cercanas de Lima.</p>
                         </div>
                     </details>
 
-                    <details class="group bg-marca-light rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
+                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
                         <summary class="flex justify-between items-center font-sans font-extrabold text-lg text-marca-dark p-6 outline-none">
-                            ¿Cómo se realiza el servicio en Airbnb?
+                            ¿Cómo se realiza el servicio en Airbnb y qué tareas generales incluye?
+                            <span class="transition-transform duration-300 group-open:rotate-180 text-marca-teal">
+                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed space-y-3">
+                            <p>Trabajamos coordinados con tu calendario de check-in/check-out. Realizamos limpieza integral, sanitización, lavado superficial de vajilla y cambio de blancos (sábanas y edredones suministrados por el propietario). Dejamos la propiedad lista para el huésped.</p>
+                            <p><strong>Tareas generales por ambiente:</strong> Desempolvado, barrido, trapeado, espejos, desinfección de inodoros, ducha, encimeras de cocina, electrodomésticos por fuera y vaciado de papeleras.</p>
+                        </div>
+                    </details>
+
+                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
+                        <summary class="flex justify-between items-center font-sans font-extrabold text-lg text-marca-dark p-6 outline-none">
+                            ¿Qué aspectos o tareas NO incluye el servicio?
                             <span class="transition-transform duration-300 group-open:rotate-180 text-marca-teal">
                                 <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                             </span>
                         </summary>
                         <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed">
-                            Trabajamos coordinados con tu calendario de check-in / check-out. Realizamos la limpieza integral, sanitización de superficies, lavado de vajilla superficial y el cambio de blancos (sábanas y edredones) dejando la propiedad lista para la llegada del huésped.
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                                <li>❌ Limpiar dentro de clósets o armarios</li>
+                                <li>❌ Lavar utensilios o vajilla acumulada</li>
+                                <li>❌ Compras o recojo de delivery</li>
+                                <li>❌ Lavado y planchado de ropa</li>
+                                <li>❌ Lavado profundo de alfombras/muebles</li>
+                                <li>❌ Cocinar para el cliente</li>
+                                <li>❌ Jardinería y paseo de mascotas</li>
+                                <li>❌ Cuidado de personas o niños</li>
+                                <li>❌ Limpieza post-construcción</li>
+                                <li>❌ Trabajos en alturas con andamios</li>
+                            </ul>
                         </div>
                     </details>
+
                 </div>
             </div>
         </section>
 
         <!-- Ubicación / CTA Final -->
-        <section id="ubicacion" class="py-24 bg-white border-t border-gray-100 relative">
+        <section id="ubicacion" class="py-8 bg-white border-t border-gray-100 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-marca-teal rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden fade-in-up">
                     
@@ -622,9 +684,9 @@
                     <div class="absolute bottom-0 left-0 w-64 h-64 bg-marca-green/20 rounded-full blur-3xl"></div>
                     
                     <div class="md:w-1/2 relative z-10 text-center md:text-left mb-10 md:mb-0">
-                        <h3 class="text-3xl md:text-5xl font-sans font-black text-white mb-6">Disfruta de tu tiempo libre</h3>
+                        <h2 class="text-3xl md:text-5xl font-sans font-black text-white mb-6">Disfruta de tu tiempo libre</h2>
                         <p class="text-teal-100 text-lg mb-8 leading-relaxed font-medium">
-                            Deja el housekeeping en manos profesionales. Agenda tu servicio hoy y siente la frescura de un hogar impecable.
+                            Deja la limpieza en manos profesionales. Agenda tu servicio hoy y siente la frescura de un hogar impecable.
                         </p>
                         <a href="https://wa.me/51908643336" target="_blank" class="inline-block bg-white text-marca-teal px-8 py-4 rounded-full font-extrabold text-lg hover:bg-gray-100 transition-colors shadow-lg">
                             Agendar por WhatsApp
@@ -633,10 +695,10 @@
                     
                     <div class="md:w-2/5 relative z-10 w-full">
                         <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 text-white shadow-inner">
-                            <h4 class="font-sans font-bold text-xl mb-6 flex items-center gap-3">
+                            <h3 class="font-sans font-bold text-xl mb-6 flex items-center gap-3">
                                 <svg class="w-6 h-6 text-marca-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                Contacto y Sede
-                            </h4>
+                                Contacto
+                            </h3>
                             <p class="mb-3 text-gray-100"><strong>WhatsApp:</strong> 908 643 336</p>
                             <p class="mb-3 text-gray-100"><strong>Oficina:</strong> Alameda Monte Umbroso 580, Lima</p>
                             <p class="mb-4 text-gray-100"><strong>Atención:</strong> Lunes a Domingo</p>
@@ -659,15 +721,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                 
-                <!-- Columna 1: Marca -->
+                <!-- Columna 1: Marca (Logo Aumentado) -->
                 <div>
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="h-16 w-16 bg-white rounded-full flex items-center justify-center overflow-hidden border border-marca-teal p-1">
+                        <!-- Aumentamos h-16 w-16 a h-24 w-24 (o h-28 w-28) -->
+                        <div class="h-24 w-24 bg-white rounded-full flex items-center justify-center overflow-hidden border-2 border-marca-teal p-1 shadow-sm shrink-0">
                             <img src="img/logo.jpg" alt="Logo Limpyzas" class="h-full w-full object-contain" onerror="this.style.display='none'">
                         </div>
                         <div>
-                            <span class="font-sans font-black text-xl tracking-wide text-marca-teal block leading-none">Limpyzas</span>
-                            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mt-1">Servicios de Housekeeping</span>
+                            <span class="font-sans font-black text-2xl tracking-wide text-marca-teal block leading-none">Limpyzas</span>
+                            <span class="text-[11px] text-gray-500 font-bold uppercase tracking-widest block mt-1">Servicios de Limpieza</span>
                         </div>
                     </div>
                     <p class="text-sm leading-relaxed text-gray-500 font-medium">
@@ -675,29 +738,29 @@
                     </p>
                 </div>
 
-                <!-- Columna 2: Enlaces -->
+                <!-- Columna 2: Navegación -->
                 <div>
                     <h4 class="font-bold text-marca-dark mb-6 uppercase tracking-wider text-sm">Navegación</h4>
                     <ul class="space-y-3 text-sm text-gray-500 font-medium">
                         <li><a href="#servicios" class="hover:text-marca-teal transition-colors">Servicios Principales</a></li>
                         <li><a href="#metraje" class="hover:text-marca-teal transition-colors">Guía por Metraje (M²)</a></li>
-                        <li><a href="#detalles" class="hover:text-marca-teal transition-colors">¿Qué Incluye?</a></li>
-                        <li><a href="#cobertura" class="hover:text-marca-teal transition-colors">Distritos Atendidos</a></li>
+                        <li><a href="#nosotros" class="hover:text-marca-teal transition-colors">Nosotros</a></li>
+                        <li><a href="#tips" class="hover:text-marca-teal transition-colors">Tips</a></li>
                     </ul>
                 </div>
 
-                <!-- Columna 3: Servicios -->
+                <!-- Columna 3: Especialidades -->
                 <div>
                     <h4 class="font-bold text-marca-dark mb-6 uppercase tracking-wider text-sm">Especialidades</h4>
                     <ul class="space-y-3 text-sm text-gray-500 font-medium">
-                        <li><span class="text-marca-teal">•</span> Limpiezas Ocupadas</li>
+                        <li><span class="text-marca-teal">•</span> Limpiezas por Horas</li>
                         <li><span class="text-marca-teal">•</span> Áreas Específicas (Cocina/Baños)</li>
-                        <li><span class="text-marca-teal">•</span> Mantenimiento de Airbnb</li>
-                        <li><span class="text-marca-teal">•</span> Cambio de Blancos y Tendido</li>
+                        <li><span class="text-marca-teal">•</span> Limpieza Profunda</li>
+                        <li><span class="text-marca-teal">•</span> Mantenimiento de Airbnb & Cambio de Blancos</li>
                     </ul>
                 </div>
 
-                <!-- Columna 4: Contacto y Redes -->
+                <!-- Columna 4: Contáctanos -->
                 <div>
                     <h4 class="font-bold text-marca-dark mb-6 uppercase tracking-wider text-sm">Contáctanos</h4>
                     <ul class="space-y-4 text-sm text-gray-500 font-medium mb-6">
@@ -719,7 +782,7 @@
                         <a href="https://www.facebook.com/profile.php?id=61590303485276&locale=es_LA" target="_blank" class="w-10 h-10 rounded-full bg-marca-light flex items-center justify-center text-marca-teal hover:bg-marca-teal hover:text-white transition-all">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                        <a href="https://www.instagram.com/limpyzas_." target="_blank" class="w-10 h-10 rounded-full bg-marca-light flex items-center justify-center text-marca-teal hover:bg-marca-teal hover:text-white transition-all">
+                        <a href="https://www.instagram.com/limpyzas_" target="_blank" class="w-10 h-10 rounded-full bg-marca-light flex items-center justify-center text-marca-teal hover:bg-marca-teal hover:text-white transition-all">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.203 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                         </a>
                         <a href="https://www.tiktok.com/@limpyzas_" target="_blank" class="w-10 h-10 rounded-full bg-marca-light flex items-center justify-center text-marca-teal hover:bg-marca-teal hover:text-white transition-all">
@@ -768,7 +831,7 @@
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
             revealElements.forEach(el => revealObserver.observe(el));
 
-            // Counter Animation
+            // Animación de incremento de números desde 0
             const counters = document.querySelectorAll('.counter');
             let hasCounted = false;
 
@@ -780,11 +843,11 @@
                             const updateCount = () => {
                                 const target = +counter.getAttribute('data-target');
                                 const count = +counter.innerText;
-                                const inc = target / 50; 
+                                const inc = target / 40; 
 
                                 if (count < target) {
                                     counter.innerText = Math.ceil(count + inc);
-                                    setTimeout(updateCount, 40);
+                                    setTimeout(updateCount, 30);
                                 } else {
                                     counter.innerText = target;
                                 }
@@ -799,6 +862,56 @@
             const counterSection = document.querySelector('.counter-section');
             if (counterSection) {
                 counterObserver.observe(counterSection);
+            }
+
+            // Desplazamiento horizontal de opiniones con botones
+            const container = document.getElementById('reviews-container');
+            const btnPrev = document.getElementById('prev-review');
+            const btnNext = document.getElementById('next-review');
+
+            if (container && btnPrev && btnNext) {
+                btnNext.addEventListener('click', () => {
+                    container.scrollBy({ left: 380, behavior: 'smooth' });
+                });
+                btnPrev.addEventListener('click', () => {
+                    container.scrollBy({ left: -380, behavior: 'smooth' });
+                });
+            }
+
+            // Funcionalidad de Arrastre con el Mouse para el Slider de Opiniones
+            const slider = document.getElementById('reviews-container');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            if (slider) {
+                slider.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    slider.classList.add('cursor-grabbing');
+                    slider.classList.remove('cursor-grab');
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = slider.scrollLeft;
+                });
+
+                slider.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    slider.classList.remove('cursor-grabbing');
+                    slider.classList.add('cursor-grab');
+                });
+
+                slider.addEventListener('mouseup', () => {
+                    isDown = false;
+                    slider.classList.remove('cursor-grabbing');
+                    slider.classList.add('cursor-grab');
+                });
+
+                slider.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - slider.offsetLeft;
+                    const walk = (x - startX) * 2; // Multiplicador de velocidad
+                    slider.scrollLeft = scrollLeft - walk;
+                });
             }
         });
     </script>
