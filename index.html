@@ -57,19 +57,50 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }        
     </style>
 </head>
-<body class="font-sans antialiased text-marca-dark bg-marca-light selection:bg-marca-teal selection:text-white">
+<body class="font-sans antialiased text-marca-dark bg-marca-light selection:bg-marca-teal selection:text-white pt-9">
+
+    <!-- Banner Marquesina Flotante Continuo e Infinito -->
+    <div class="fixed top-0 left-0 w-full bg-teal-600 text-white text-xs sm:text-sm font-bold py-2 overflow-hidden z-[60] shadow-md">
+        <div class="animate-marquee">
+            <!-- Grupo 1 -->
+            <div class="flex shrink-0 items-center gap-8 px-4">
+                <span>💡 Todos los miércoles nuevo tip en Instagram (@limpyzas_)</span>
+                <span>💡 Todos los miércoles nuevo tip en Instagram (@limpyzas_)</span>
+                <span>💡 Todos los miércoles nuevo tip en Instagram (@limpyzas_)</span>
+                <span>💡 Todos los miércoles nuevo tip en Instagram (@limpyzas_)</span>
+            </div>
+            <!-- Grupo 2 (Duplicado para continuidad infinita) -->
+            <div class="flex shrink-0 items-center gap-8 px-4">
+                <span>💡 Todos los miércoles nuevo tip en Instagram (@limpyzas_)</span>
+                <span>💡 Todos los miércoles nuevo tip en Instagram (@limpyzas_)</span>
+                <span>💡 Todos los miércoles nuevo tip en Instagram (@limpyzas_)</span>
+                <span>💡 Todos los miércoles nuevo tip en Instagram (@limpyzas_)</span>
+            </div>
+        </div>
+    </div> 
 
     <!-- Navegación Principal -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
+    <nav class="sticky top-9 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
                 
-                <!-- Logo Grande -->
+                <!-- Logo Grande sin Borde ni Círculo -->
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <div class="h-16 w-16 sm:h-20 sm:w-20 bg-white rounded-full flex items-center justify-center overflow-hidden border-2 border-marca-teal p-1 shadow-sm">
-                        <img src="img/logo.jpg" alt="Logo Limpyzas" class="h-full w-full object-contain" onerror="this.style.display='none'">
+                    <div class="h-20 w-20 sm:h-24 sm:w-24 flex items-center justify-center overflow-hidden p-0">
+                        <img src="img/logo.jpg" alt="Logo Limpyzas" class="h-full w-full object-contain">
                     </div>
                     <div class="flex flex-col justify-center">
                         <span class="font-sans font-black text-2xl sm:text-3xl tracking-wide text-marca-teal leading-none">Limpyzas</span>
@@ -82,9 +113,6 @@
                     <a href="#servicios" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Servicios</a>
                     <a href="#metraje" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Guía por M²</a>
                     <a href="#nosotros" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Nosotros</a>
-                    <a href="#tips" class="text-sm font-extrabold text-marca-dark hover:text-marca-teal transition-colors flex items-center gap-1.5">
-                        <span>💡</span> Tips
-                    </a>
                     <a href="#faq" class="text-sm font-bold text-gray-600 hover:text-marca-teal transition-colors">Preguntas</a>
                     
                     <a href="https://wa.me/51908643336?text=Hola,%20quisiera%20cotizar%20un%20servicio%20de%20limpieza." target="_blank" class="bg-marca-teal hover:bg-marca-tealDark text-white px-7 py-3 rounded-full text-sm font-bold transition-all shadow-md shadow-marca-teal/20 flex items-center gap-2 transform hover:-translate-y-0.5">
@@ -115,7 +143,6 @@
             <a href="#servicios" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Servicios</a>
             <a href="#metraje" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Guía por M²</a>
             <a href="#nosotros" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Nosotros</a>
-            <a href="#tips" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors"><span>💡</span> Tips</a>
             <a href="#faq" class="mobile-link text-2xl font-bold text-gray-700 hover:text-marca-teal transition-colors">Preguntas Frecuentes</a>
             
             <a href="https://wa.me/51908643336" target="_blank" class="bg-marca-teal text-white px-10 py-4 rounded-full text-xl font-bold shadow-lg mt-6">WhatsApp: 908 643 336</a>
@@ -130,11 +157,6 @@
     <main>
         <!-- Hero Section -->
         <header class="relative w-full flex items-center bg-marca-light py-12 lg:py-20 overflow-hidden min-h-[60vh] lg:min-h-[75vh]">
-
-            <!-- Badge "Nuevo Tip" en la esquina superior derecha del Hero -->
-            <div class="absolute top-6 right-6 z-30 bg-marca-green text-white font-black px-5 py-2.5 rounded-full shadow-lg text-sm sm:text-base animate-bounce">
-                ✨ ¡Tenemos nuevo Tip!
-            </div>
 
             <div class="absolute top-0 right-0 w-full lg:w-[65%] h-[45vh] lg:h-full z-0">
                 <img src="img/portada.png" alt="Porta Limpyzas" class="w-full h-full object-cover object-center">
@@ -205,7 +227,6 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 text-center divide-x divide-white/20 items-end">
                     
-                    <!-- Columna 1 -->
                     <div class="px-2 py-3 flex flex-col items-center justify-end h-full">
                         <div class="text-3xl sm:text-5xl font-sans font-black mb-2 leading-none flex items-center justify-center">
                             <span class="counter" data-target="100">0</span>%
@@ -215,7 +236,6 @@
                         </p>
                     </div>
 
-                    <!-- Columna 2 -->
                     <div class="px-2 py-3 flex flex-col items-center justify-end h-full">
                         <div class="text-3xl sm:text-5xl font-sans font-black mb-2 leading-none flex items-center justify-center">
                             <span class="counter" data-target="12">0</span>+
@@ -225,7 +245,6 @@
                         </p>
                     </div>
 
-                    <!-- Columna 3 -->
                     <div class="px-2 py-3 flex flex-col items-center justify-end h-full">
                         <div class="text-3xl sm:text-5xl font-sans font-black mb-2 leading-none flex items-center justify-center">
                             7/7
@@ -235,7 +254,6 @@
                         </p>
                     </div>
 
-                    <!-- Columna 4 -->
                     <div class="px-2 py-3 flex flex-col items-center justify-end h-full">
                         <div class="mb-2 flex items-center justify-center h-[36px] sm:h-[48px]">
                             <div class="w-9 h-9 sm:w-11 sm:h-11 bg-marca-green rounded-full flex items-center justify-center text-white shadow-sm">
@@ -324,7 +342,6 @@
                     
                     <!-- 1. Limpiezas por Horas -->
                     <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal-100 flex flex-col fade-in-up group">
-                        <!-- Contenedor de la imagen en la tarjeta -->
                         <div class="h-52 sm:h-60 md:h-72 w-full overflow-hidden relative">
                             <img src="img/limpiezas por horas.jpg" alt="Limpiezas por Horas" class="w-full h-full object-cover object-top">
                         </div>
@@ -346,7 +363,6 @@
 
                     <!-- 2. Áreas Específicas -->
                     <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal-100 flex flex-col fade-in-up delay-100 group">
-                        <!-- Contenedor de la imagen en la tarjeta -->
                         <div class="h-52 sm:h-60 md:h-72 w-full overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Limpieza de áreas específicas" class="w-full h-full object-cover object-top">
                         </div>
@@ -416,11 +432,10 @@
             </div>
         </section>
 
-        <!-- Guía por M² (Padding inferior reducido) -->
+        <!-- Guía por M² -->
         <section id="metraje" class="pt-12 md:pt-16 pb-8 md:pb-12 bg-white border-t border-gray-100 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 
-                <!-- Badge "Desde S/ 80.00" -->
                 <div class="inline-block md:absolute md:-top-4 md:right-2 lg:right-4 bg-marca-green text-white font-black px-5 py-2.5 rounded-full shadow-lg text-sm sm:text-base animate-bounce mb-4 md:mb-0 z-20">
                     🏷️ ¡Desde S/ 80.00!
                 </div>
@@ -470,59 +485,7 @@
             </div>
         </section>
 
-        <!-- Tips de Limpieza (Padding superior reducido pt-8 md:pt-12) -->
-        <section id="tips" class="pt-8 md:pt-12 pb-16 md:pb-24 bg-marca-light border-t border-gray-100 relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="text-center max-w-3xl mx-auto mb-10 md:mb-14 fade-in-up">
-                    <span class="text-marca-green font-extrabold tracking-widest uppercase text-xs md:text-sm mb-2 block">💡 Consejos Útiles</span>
-                    
-                    <div class="flex items-center justify-center gap-3 sm:gap-5 mb-3">
-                        <img src="img/mapache2.png" alt="Mascota Limpyzas" class="w-14 sm:w-18 md:w-20 h-auto object-contain drop-shadow-md shrink-0" onerror="this.src='mapache2.png'">
-                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-sans font-black text-marca-dark leading-none">
-                            Tips de Limpieza
-                        </h2>
-                    </div>
-
-                    <p class="text-gray-600 text-sm md:text-base font-medium">
-                        Consejos útiles para un hogar impecable. ¡Cada miércoles tenemos un nuevo tip para ti!
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-200 fade-in-up flex flex-col">
-                        <div class="h-56 overflow-hidden relative">
-                            <img src="img/vidrios.png" alt="Cristales y Ventanas" class="w-full h-full object-cover">
-                            <div class="absolute bottom-3 left-3 bg-marca-teal text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Cristales y Ventanas</div>
-                        </div>
-                        <div class="p-8 flex-grow">
-                            <h3 class="text-2xl font-sans font-black text-marca-dark mb-3">5 Secretos para Ventanas y Vidrios Sin Rayas</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-4">1. Limpia en días nublados o cuando no haya sol directo</p>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-4">2. Usa un paño de microfibra limpio</p>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-4">3. No uses demasiado producto</p>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-4">4. Seca con movimientos en una sola dirección</p>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-4">5. Limpia también los marcos y rieles</p>
-                            
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-200 fade-in-up delay-100 flex flex-col">
-                        <div class="h-56 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Baños impecables" class="w-full h-full object-cover">
-                            <div class="absolute bottom-3 left-3 bg-marca-forest text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Baños</div>
-                        </div>
-                        <div class="p-8 flex-grow">
-                            <h3 class="text-2xl font-sans font-black text-marca-dark mb-3">Secreto para un Inodoro Impecable</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">1. Rocía vinagre puro en la taza del inodoro, deja reposar unos minutos y frota con una escobilla para eliminar sarro de forma ecológica.</p>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-4">2. Espolvorea media taza de bicarbonato de sodio dentro de la taza del inodoro y déjalo actuar entre 10 y 15 minutos. Luego frota con una escobilla y descarga el agua para eliminar malos olores, manchas y restos de suciedad de forma natural.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Testimonios / Reseñas (Con círculo de comillas y slider navegable en escritorio) -->
+        <!-- Testimonios / Reseñas -->
         <section class="py-8 bg-white border-t border-gray-100 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -532,7 +495,6 @@
                         <h2 class="text-3xl md:text-5xl font-sans font-black text-marca-dark">Lo que dicen nuestros clientes</h2>
                     </div>
                     
-                    <!-- Botones de Navegación para Escritorio/Móvil -->
                     <div class="flex gap-3 mt-6 md:mt-0">
                         <button id="prev-review" aria-label="Anterior" class="w-12 h-12 rounded-full bg-marca-light border border-gray-200 text-marca-teal hover:bg-marca-teal hover:text-white transition-all flex items-center justify-center shadow-sm active:scale-95">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -543,7 +505,6 @@
                     </div>
                 </div>
 
-                <!-- Contenedor del Slider -->
                 <div id="reviews-container" class="flex overflow-x-auto space-x-6 pt-6 pb-6 no-scrollbar snap-x scroll-smooth fade-in-up delay-100 cursor-grab active:cursor-grabbing select-none">
                     
                     <!-- Review 1 -->
@@ -603,7 +564,7 @@
                             <div class="flex text-amber-400 mb-4 pt-2 text-lg">★★★★★</div>
                             <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"La limpieza es excelente y siempre dejan todo listo para la siguiente reserva. Servicio muy confiable."</p>
                         </div>
-                        <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Emanuel</p>
+                        <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Emanuel Alvarez</p>
                     </div>
 
                     <!-- Review 6 -->
@@ -615,87 +576,229 @@
                             <div class="flex text-amber-400 mb-4 pt-2 text-lg">★★★★★</div>
                             <p class="text-gray-600 font-medium text-sm mb-6 leading-relaxed">"Quedé muy satisfecha con el servicio de Limpyzas, mi depa se ve increíble."</p>
                         </div>
-                        <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Ana</p>
+                        <p class="font-extrabold text-marca-dark uppercase tracking-wide text-xs">- Ana León</p>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- Sección FAQ con Espaciado Optimizado -->
-        <section id="faq" class="py-8 md:py-10 bg-marca-light border-t border-gray-100 relative">
+        <!-- Preguntas Frecuentes (FAQ) -->
+        <section id="faq" class="py-16 md:py-24 bg-slate-50">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Encabezado con margen reducido (mb-8) -->
-                <div class="text-center mb-8 fade-in-up">
-                    <h2 class="text-3xl md:text-5xl font-sans font-black text-marca-dark">Preguntas Frecuentes</h2>
+                <div class="text-center mb-16 reveal">
+                    <span class="text-teal-600 font-bold tracking-widest uppercase text-xs sm:text-sm block mb-2">Información Detallada</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">Preguntas Frecuentes</h2>
+                    <div class="w-20 h-1 bg-teal-600 mx-auto mt-4 rounded-full"></div>
                 </div>
 
-                <div class="space-y-4 fade-in-up delay-100">
+                <div class="space-y-4">
                     
-                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
-                        <summary class="flex justify-between items-center font-sans font-extrabold text-lg text-marca-dark p-6 outline-none">
-                            ¿Debo proporcionar los productos de limpieza y qué insumos se sugieren?
-                            <span class="transition-transform duration-300 group-open:rotate-180 text-marca-teal">
-                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
+                    <!-- 1. ¿Horario de atención y qué distritos cubren? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-100 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>1. ¿Horario de atención y qué distritos cubren?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
                         </summary>
-                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed space-y-3">
-                            <p>Los paquetes estándar utilizan los productos disponibles en tu hogar. Sin embargo, si deseas que nuestro equipo lleve el kit completo de insumos, puedes solicitarlo por WhatsApp para brindarte una cotización adaptada.</p>
-                            <p><strong>Kit sugerido en casa:</strong> Escoba, recogedor, trapeador, paños de microfibra, bolsas de basura, limpiavidrios, limpia pisos, limpiador multiusos, desengrasante, detergente, lejía, jabón líquido y quitasarro.</p>
+                        <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed space-y-4 font-normal border-t border-slate-100/60 pt-1">
+                            <div>
+                                <p class="font-bold text-slate-900 mb-1">Horarios del Servicio</p>
+                                <p>Atendemos de lunes a domingo. Te recomendamos agendar con 24 horas de anticipación en los siguientes horarios:</p>
+                                <ul class="list-disc pl-5 mt-1 space-y-0.5">
+                                    <li>Lunes a sábado: 8:00 a. m. a 4:00 p. m.</li>
+                                    <li>Domingos: 9:00 a. m. a 2:00 p. m.</li>
+                                </ul>
+                                <p class="mt-1 text-slate-500 italic">Nota: Los días feriados no realizamos limpiezas (solo atendemos dudas y consultas).</p>
+                            </div>
+
+                            <div>
+                                <p class="font-bold text-slate-900 mb-1">Distritos de Cobertura</p>
+                                <p>Atendemos en los siguientes distritos: Surco, Miraflores, Barranco, San Isidro, San Borja, San Miguel, La Molina, Magdalena, Jesús María, Lince, Surquillo, Pueblo Libre y zonas cercanas de Lima Metropolitana.</p>
+                            </div>
+
+                            <div class="pt-2 border-t border-slate-100">
+                                <p class="font-bold text-slate-900 mb-1">Atención al Cliente</p>
+                                <p>Para reservas, dudas o consultas, comunícate con nosotros todos los días de 8:00 a. m. a 8:00 p. m.</p>
+                                <p class="mt-1">Teléfono: 908 643 336</p>
+                                <p>Correo: serviciosdelimpieza@limpyzas.com</p>
+                                <p class="mt-1 font-semibold text-slate-800">Cambios y cancelaciones: avísanos con un mínimo de 24 horas de anticipación.</p>
+                            </div>
                         </div>
                     </details>
 
-                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
-                        <summary class="flex justify-between items-center font-sans font-extrabold text-lg text-marca-dark p-6 outline-none">
-                            ¿Atienden domingos y feriados y qué distritos cubren?
-                            <span class="transition-transform duration-300 group-open:rotate-180 text-marca-teal">
-                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
+                    <!-- 2. ¿Qué productos debo tener para el servicio de limpieza? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-100 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>2. ¿Qué productos debo tener para el servicio de limpieza?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
                         </summary>
-                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed space-y-3">
-                            <p>¡Sí! Nuestro servicio está disponible de Lunes a Domingo. Te sugerimos agendar con anticipación.</p>
-                            <p><strong>Distritos de cobertura:</strong> Surco, Miraflores, Barranco, San Isidro, San Borja, San Miguel, La Molina, Magdalena, Jesús María, Lince, Surquillo, Pueblo Libre y zonas cercanas de Lima.</p>
+                        <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed font-normal border-t border-slate-100/60 pt-1">
+                            <p>Kit sugerido: Escoba, recogedor, trapeador, aspiradora, paños de microfibra, trapeadores, bolsas de basura, limpiavidrios, limpiatodo, limpiador multiusos, cepillo limpiacristales, desengrasante, detergente en polvo, lejía o bicarbonato de sodio, renovador de madera, y quitasarro. Sin embargo, si deseas que nuestro equipo lleve el kit completo de insumos, puedes solicitarlo por WhatsApp para brindarte una cotización adaptada.</p>
                         </div>
                     </details>
 
-                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
-                        <summary class="flex justify-between items-center font-sans font-extrabold text-lg text-marca-dark p-6 outline-none">
-                            ¿Cómo se realiza el servicio en Airbnb y qué tareas generales incluye?
-                            <span class="transition-transform duration-300 group-open:rotate-180 text-marca-teal">
-                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
+                    <!-- 3. ¿Qué servicios de limpieza ofrecen y qué incluye cada uno? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-200 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>3. ¿Qué servicios de limpieza ofrecen y qué incluye cada uno?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
                         </summary>
-                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed space-y-3">
-                            <p>Trabajamos coordinados con tu calendario de check-in/check-out. Realizamos limpieza integral, sanitización, lavado superficial de vajilla y cambio de blancos (sábanas y edredones suministrados por el propietario). Dejamos la propiedad lista para el huésped.</p>
-                            <p><strong>Tareas generales por ambiente:</strong> Desempolvado, barrido, trapeado, espejos, desinfección de inodoros, ducha, encimeras de cocina, electrodomésticos por fuera y vaciado de papeleras.</p>
+                        <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed space-y-4 font-normal border-t border-slate-100/60 pt-1">
+                            <p>Contamos con diferentes tipos de servicio para adaptarnos a las necesidades de cada propiedad:</p>
+                            
+                            <div>
+                                <p class="font-bold text-slate-900">✓ Limpieza por horas</p>
+                                <p>Ideal para el mantenimiento de casas y departamentos. El tiempo contratado se distribuye entre todas las áreas de la propiedad para realizar una limpieza general que incluye desempolvado de muebles, cuidado de pisos (barrido, trapeado y encerado), limpieza y desinfección de baños, limpieza de espejos, mamparas y ventanas interiores, limpieza exterior de electrodomésticos y muebles pesados, además del vaciado de papeleras y colocación de bolsas limpias.</p>
+                            </div>
+
+                            <div>
+                                <p class="font-bold text-slate-900">✓ Limpieza en áreas específicas</p>
+                                <p>Pensada para quienes necesitan una limpieza a profundidad en espacios concretos, como cocinas, baños o lavanderías. Se dedica mayor tiempo a las áreas seleccionadas e incluye la limpieza interior y exterior de muebles, electrodomésticos y otros elementos según corresponda.</p>
+                            </div>
+
+                            <div>
+                                <p class="font-bold text-slate-900">✓ Limpieza profunda</p>
+                                <p>Consiste en una limpieza integral de toda la propiedad, incluyendo el interior y exterior de muebles y electrodomésticos. Es ideal para viviendas que no han recibido limpieza con regularidad o para propiedades que requieren una intervención más exhaustiva. Incluye desempolvado, cuidado de pisos (barrido, trapeado, aspirado de alfombras y encerado), limpieza y desinfección completa de baños, limpieza de cristales, mamparas, ventanas y marcos, además del vaciado de papeleras y colocación de bolsas limpias.</p>
+                            </div>
+
+                            <div>
+                                <p class="font-bold text-slate-900">✓ Limpieza para Airbnb</p>
+                                <p>Nos adaptamos al calendario de check-in y check-out para dejar la propiedad lista para cada huésped. El servicio incluye limpieza integral de todas las áreas, lavado de vajilla, cambio de blancos (sábanas y edredones proporcionados por el propietario), limpieza de baños, cocina, pisos, ventanas interiores, electrodomésticos, desempolvado de muebles y vaciado de papeleras.</p>
+                            </div>
                         </div>
                     </details>
 
-                    <details class="group bg-white rounded-2xl border border-gray-200 shadow-sm cursor-pointer overflow-hidden transition-all duration-300">
-                        <summary class="flex justify-between items-center font-sans font-extrabold text-lg text-marca-dark p-6 outline-none">
-                            ¿Qué aspectos o tareas NO incluye el servicio?
-                            <span class="transition-transform duration-300 group-open:rotate-180 text-marca-teal">
-                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
+                    <!-- 4. ¿Qué actividades o tareas NO están incluidas durante el servicio? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-200 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>4. ¿Qué actividades o tareas NO están incluidas durante el servicio?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
                         </summary>
-                        <div class="text-gray-600 font-medium px-6 pb-6 leading-relaxed">
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-                                <li>❌ Limpiar dentro de clósets o armarios</li>
-                                <li>❌ Lavar utensilios o vajilla acumulada</li>
-                                <li>❌ Compras o recojo de delivery</li>
-                                <li>❌ Lavado y planchado de ropa</li>
-                                <li>❌ Lavado profundo de alfombras/muebles</li>
-                                <li>❌ Cocinar para el cliente</li>
-                                <li>❌ Jardinería y paseo de mascotas</li>
-                                <li>❌ Cuidado de personas o niños</li>
-                                <li>❌ Limpieza post-construcción</li>
-                                <li>❌ Trabajos en alturas con andamios</li>
+                        <div class="px-6 pb-5 text-slate-700 text-xs sm:text-sm border-t border-slate-100/60 pt-3">
+                            <ul class="columns-1 sm:columns-2 gap-8 space-y-2.5">
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Lavar utensilios o vajilla acumulada</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Compras o recojo de delivery</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Lavado y planchado de ropa</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Organización de ropa, cajones y armarios</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Lavado profundo de alfombras/tapicería/colchones/cortinas</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Cocinar para el cliente</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Jardinería y limpieza de piscina</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Limpieza en alturas, superficies exteriores de difícil acceso, y ventanas exteriores sin acceso seguro</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Cuidado de mascotas</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Cuidado de personas y niños</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Limpieza post-construcción o post-remodelación.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Fumigación o control de plagas.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Mezcla de productos químicos tóxicos o peligrosos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 break-inside-avoid">
+                                    <span class="text-rose-500 font-bold shrink-0">❌</span>
+                                    <span>Movimiento de muebles pesados (sin ruedas o rodillos que impiden el fácil desplazamiento)</span>
+                                </li>
                             </ul>
                         </div>
                     </details>
 
+                    <!-- 5. ¿Envían siempre al mismo personal de limpieza? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-300 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>5. ¿Envían siempre al mismo personal de limpieza?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed font-normal border-t border-slate-100/60 pt-1">
+                            <p>Sí, hacemos todo lo posible por asignarte al mismo profesional de limpieza pero dependerá de la disponibilidad de agenda del equipo. Sabemos que la continuidad genera confianza y que la persona ya conoce sus preferencias y rutina del hogar. En caso haya un cambio de profesional, enviaremos a otro miembro de nuestro equipo igualmente capacitado, confiable y responsable.</p>
+                        </div>
+                    </details>
+
+                    <!-- 6. ¿Qué sucede si el personal de limpieza llega tarde? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-300 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>6. ¿Qué sucede si el personal de limpieza llega tarde?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed font-normal space-y-2 border-t border-slate-100/60 pt-1">
+                            <p>Si ocurre algún retraso, nuestro equipo de atención al cliente se comunicará contigo para brindarte estas alternativas:</p>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Mantener la cita:</strong> Esperas al personal y recuperamos el tiempo perdido para cumplir con todo el servicio.</li>
+                                <li><strong>Cambiar la fecha:</strong> Reprogramas la limpieza para el día que prefieras.</li>
+                            </ul>
+                            <p>Por favor, ten en cuenta que factores externos como paro de transportes, marchas, bloqueos de vías, accidentes o condiciones climáticas adversas escapan de nuestras manos. Agradecemos tu paciencia; te mantendremos informado para minimizar cualquier inconveniente.</p>
+                        </div>
+                    </details>
+
+                    <!-- 7. ¿Qué pasa si algo se rompe o se daña accidentalmente durante la limpieza? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-400 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>7. ¿Qué pasa si algo se rompe o se daña accidentalmente durante la limpieza?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed font-normal border-t border-slate-100/60 pt-1">
+                            <p>Tratamos tu hogar y todas tus pertenencias con el mayor cuidado y profesionalismo. Sin embargo, entendemos que, en ocasiones excepcionales, pueden ocurrir accidentes durante el servicio. Si consideras que algún objeto ha sido dañado por nuestro personal, te solicitamos reportarlo durante la limpieza o dentro de las primeras 2 horas posteriores a la finalización del servicio. Nuestro equipo evaluará el caso de acuerdo con nuestra política de responsabilidad. En caso de verificarse que el daño fue ocasionado por nuestro personal, gestionaremos la reparación o reposición del artículo afectado. Para ello, será necesario presentar evidencia que permita determinar la responsabilidad correspondiente, así como un comprobante de compra, voucher o cualquier documento que accredite el valor del objeto. Nuestro compromiso es brindar un servicio de calidad y atender cualquier incidencia de manera justa, transparente y oportuna.</p>
+                        </div>
+                    </details>
+
+                    <!-- 8. ¿Qué pasa si no quedo conforme con el resultado de la limpieza? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-400 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>8. ¿Qué pasa si no quedo conforme con el resultado de la limpieza?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed font-normal border-t border-slate-100/60 pt-1">
+                            <p>Tu satisfacción es lo más importante para nosotros. Si por alguna razón sientes que pasamos por alto algún detalle o que un área no quedó impecable, no te preocupes. Solo debes comunicarte con nosotros al término de la limpieza con un plazo máximo de 1 hora y compartirnos tu experiencia, de ser posible nos pueda enviar una evidencia (foto o video). Luego nuestro personal irá nuevamente para corregir esas áreas, sin ningún costo adicional para ti. Nuestro objetivo es que ames el resultado cada vez que entres a tu hogar.</p>
+                        </div>
+                    </details>
+
+                    <!-- 9. ¿Qué hago si tengo mascotas en casa? -->
+                    <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal delay-400 shadow-sm transition-all hover:border-teal-300">
+                        <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
+                            <span>9. ¿Qué hago si tengo mascotas en casa?</span>
+                            <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed font-normal border-t border-slate-100/60 pt-1">
+                            <p>Somos un servicio petfriendly, Al momento del servicio, te pediremos algunos detalles sobre ellas, como su nombre y cualquier comportamiento o necesidad especial que debamos tener en cuenta (por ejemplo, si son tímidas, nerviosas, territoriales o si existe el riesgo de que puedan salir por una puerta abierta). Además, si contratas el servicio con productos de limpieza incluidos, puedes tener la tranquilidad de que utilizamos productos seguros y no tóxicos para perros y gatos, priorizando siempre el bienestar de todos los miembros de tu familia. Nuestro objetivo es realizar la limpieza de forma segura, respetuosa y cómoda tanto para ti como para tus compañeros de cuatro patas.</p>
+                        </div>
+                    </details>
+
                 </div>
+
             </div>
         </section>
 
@@ -747,10 +850,10 @@
                 
                 <!-- Columna 1: Marca (Logo Aumentado) -->
                 <div>
+                    <!-- Logo del Footer sin Círculo y Más Grande -->
                     <div class="flex items-center gap-4 mb-6">
-                        <!-- Aumentamos h-16 w-16 a h-24 w-24 (o h-28 w-28) -->
-                        <div class="h-24 w-24 bg-white rounded-full flex items-center justify-center overflow-hidden border-2 border-marca-teal p-1 shadow-sm shrink-0">
-                            <img src="img/logo.jpg" alt="Logo Limpyzas" class="h-full w-full object-contain" onerror="this.style.display='none'">
+                        <div class="h-28 w-28 flex items-center justify-center overflow-hidden p-0 shrink-0">
+                            <img src="img/logo.jpg" alt="Logo Limpyzas" class="h-full w-full object-contain">
                         </div>
                         <div>
                             <span class="font-sans font-black text-2xl tracking-wide text-marca-teal block leading-none">Limpyzas</span>
@@ -769,7 +872,6 @@
                         <li><a href="#servicios" class="hover:text-marca-teal transition-colors">Servicios Principales</a></li>
                         <li><a href="#metraje" class="hover:text-marca-teal transition-colors">Guía por Metraje (M²)</a></li>
                         <li><a href="#nosotros" class="hover:text-marca-teal transition-colors">Nosotros</a></li>
-                        <li><a href="#tips" class="hover:text-marca-teal transition-colors">Tips</a></li>
                     </ul>
                 </div>
 
@@ -933,7 +1035,7 @@
                     if (!isDown) return;
                     e.preventDefault();
                     const x = e.pageX - slider.offsetLeft;
-                    const walk = (x - startX) * 2; // Multiplicador de velocidad
+                    const walk = (x - startX) * 2;
                     slider.scrollLeft = scrollLeft - walk;
                 });
             }
