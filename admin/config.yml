@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main # Cambia a 'master' si tu rama en Git se llama así
+
+media_folder: "img"
+public_folder: "/img"
+
+collections:
+  - name: "contacto"
+    label: "Información de Contacto"
+    files:
+      - file: "data/contacto.json"
+        label: "Datos Principales"
+        name: "datos_empresa"
+        fields:
+          - { label: "Teléfono / WhatsApp (ej: 908 643 336)", name: "telefono_texto", widget: "string" }
+          - { label: "Número WhatsApp sin espacios (ej: 51908643336)", name: "telefono_num", widget: "string" }
+          - { label: "Dirección de la Oficina", name: "direccion", widget: "string" }
+          - { label: "Enlace Google Maps", name: "maps_url", widget: "string" }
+          - { label: "Correo Electrónico", name: "correo", widget: "string" }
+          - label: "Redes Sociales"
+            name: "redes"
+            widget: "object"
+            fields:
+              - { label: "Facebook URL", name: "facebook", widget: "string" }
+              - { label: "Instagram URL", name: "instagram", widget: "string" }
+              - { label: "TikTok URL", name: "tiktok", widget: "string" }
