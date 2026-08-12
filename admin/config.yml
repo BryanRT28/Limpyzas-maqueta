@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: BryanRT28/Limpyzas-maqueta  # Tu usuario y el nombre de tu repositorio actual
+  repo: BryanRT28/Limpyzas-maqueta  # Tu repositorio en GitHub
   branch: main
   base_url: https://decap-cms-oauth.vercel.app
 
@@ -8,11 +8,11 @@ media_folder: "img"
 public_folder: "/img"
 
 collections:
-  - name: "contacto"
-    label: "Información de Contacto"
+  - name: "configuracion"
+    label: "Configuración del Sitio"
     files:
       - file: "data/contacto.json"
-        label: "Datos Principales"
+        label: "Datos de Contacto"
         name: "datos_empresa"
         fields:
           - { label: "Teléfono / WhatsApp (ej: 908 643 336)", name: "telefono_texto", widget: "string" }
@@ -27,3 +27,15 @@ collections:
               - { label: "Facebook URL", name: "facebook", widget: "string" }
               - { label: "Instagram URL", name: "instagram", widget: "string" }
               - { label: "TikTok URL", name: "tiktok", widget: "string" }
+
+      - file: "data/faq.json"
+        label: "Preguntas Frecuentes"
+        name: "preguntas_frecuentes"
+        fields:
+          - label: "Lista de Preguntas Frecuentes"
+            name: "preguntas"
+            widget: "list"
+            summary: "{{fields.pregunta}}"
+            fields:
+              - { label: "Pregunta", name: "pregunta", widget: "string" }
+              - { label: "Respuesta (HTML)", name: "respuesta", widget: "text" }

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquear la carpeta de administración de Decap CMS
+Disallow: /admin/
+Disallow: /admin
+
+# Ruta directa hacia tu Sitemap
+Sitemap: https://limpyzas.com/sitemap.xml
