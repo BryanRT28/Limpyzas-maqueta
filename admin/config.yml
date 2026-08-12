@@ -38,11 +38,9 @@ collections:
             summary: "{{fields.pregunta}}"
             fields:
               - { label: "Pregunta", name: "pregunta", widget: "string" }
-              - { 
-                  label: "Respuesta", 
-                  name: "respuesta", 
-                  widget: "markdown", 
-                  editor_components: [],
-                  modes: ["rich_text", "raw"],
-                  default: "rich_text"
-                }
+              - label: "Respuesta"
+                name: "respuesta"
+                widget: "markdown"
+                mode: "rich_text"
+                modes:
+                  - "rich_text"
