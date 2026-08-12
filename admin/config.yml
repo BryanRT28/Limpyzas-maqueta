@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: BryanRT28/Limpyzas-maqueta  # Tu repositorio en GitHub
+  repo: BryanRT28/Limpyzas-maqueta
   branch: main
   base_url: https://decap-cms-oauth.vercel.app
 
@@ -37,5 +37,5 @@ collections:
             widget: "list"
             summary: "{{fields.pregunta}}"
             fields:
-              - { label: "Pregunta", name: "pregunta", widget: "string" }
-              - { label: "Respuesta (HTML)", name: "respuesta", widget: "text" }
+              - { label: "Título de la Pregunta", name: "pregunta", widget: "string" }
+              - { label: "Respuesta del Cliente", name: "respuesta", widget: "text" }

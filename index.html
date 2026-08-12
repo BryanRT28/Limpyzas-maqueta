@@ -910,7 +910,7 @@
                 .catch(err => console.log('Cargando valores por defecto HTML:', err));
 
             // -------------------------------------------------------------
-            // Carga Dinámica de FAQ desde faq.json
+            // Carga Dinámica de FAQ desde faq.json (Soporta formateo automático)
             // -------------------------------------------------------------
             fetch('/data/faq.json')
                 .then(res => res.json())
@@ -923,19 +923,29 @@
                             const details = document.createElement('details');
                             details.className = 'group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal shadow-sm transition-all hover:border-teal-300';
                             
+                            // Si la respuesta contiene etiquetas HTML (versión avanzada), la usa directa; 
+                            // si es texto plano del cliente con saltos de línea (\n), lo convierte a párrafos <p>
+                            let contenidoRespuesta = item.respuesta;
+                            if (!/<[a-z][\s\S]*>/i.test(item.respuesta)) {
+                                contenidoRespuesta = item.respuesta
+                                    .split('\n\n')
+                                    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+                                    .join('');
+                            }
+
                             details.innerHTML = `
                                 <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
                                     <span>${item.pregunta}</span>
                                     <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
                                 </summary>
-                                <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed space-y-4 font-normal border-t border-slate-100/60 pt-3">
-                                    ${item.respuesta}
+                                <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed space-y-3 font-normal border-t border-slate-100/60 pt-3">
+                                    ${contenidoRespuesta}
                                 </div>
                             `;
                             faqContainer.appendChild(details);
                         });
 
-                        // Sincronizar teléfono y correo actualizados dentro de las respuestas cargadas
+                        // Re-sincronizar teléfono y correo en caso el texto tenga clases .js-telefono-txt o .js-correo-txt
                         fetch('/data/contacto.json')
                             .then(r => r.json())
                             .then(cData => aplicarDatosContacto(cData));
