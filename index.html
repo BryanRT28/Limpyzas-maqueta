@@ -32,6 +32,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
+    <!-- CDN para renderizar Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- CDN para estilos de tipografía Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
     <!-- ==================== DATOS ESTRUCTURADOS SCHEMA.ORG (SEO LOCAL GOOGLE) ==================== -->
     <script type="application/ld+json">
     {
@@ -912,7 +917,7 @@
                 .catch(err => console.log('Cargando valores por defecto HTML:', err));
 
             // -------------------------------------------------------------
-            // Carga Dinámica de FAQ con Marked.js (Soporta Markdown para Decap CMS)
+            // Carga Dinámica de FAQ (Renderizado Markdown Estilizado)
             // -------------------------------------------------------------
             fetch('/data/faq.json')
                 .then(res => res.json())
@@ -925,10 +930,12 @@
                             const details = document.createElement('details');
                             details.className = 'group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal shadow-sm transition-all hover:border-teal-300';
                             
-                            // Convierte el Markdown ingresado por el cliente en HTML
-                            const htmlRespuesta = (typeof marked !== 'undefined') 
-                                ? marked.parse(item.respuesta) 
-                                : item.respuesta;
+                            // Convertir Markdown a HTML
+                            let htmlRespuesta = (typeof marked !== 'undefined') ? marked.parse(item.respuesta) : item.respuesta;
+
+                            // Formatear listas de la maqueta original
+                            htmlRespuesta = htmlRespuesta.replace(/<ul>/g, '<ul class="list-disc pl-5 space-y-1 my-2">');
+                            htmlRespuesta = htmlRespuesta.replace(/<blockquote>/g, '<blockquote class="p-3.5 bg-slate-100 rounded-xl text-slate-800 text-xs font-semibold my-3 not-italic border-none">');
 
                             details.innerHTML = `
                                 <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
