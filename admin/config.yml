@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: BryanRT28/Limpyzas-maqueta-main  # Tu usuario y el nombre de tu repositorio actual
+  repo: BryanRT28/Limpyzas-maqueta  # Tu usuario y el nombre de tu repositorio actual
   branch: main
   base_url: https://decap-cms-oauth.vercel.app
 
