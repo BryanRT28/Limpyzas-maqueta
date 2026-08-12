@@ -14,7 +14,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="img/favicon.webp">
 
-    <!-- ==================== OPTIMIZACIÓN DE RENDIMIENTO (LCP & ASSETS) ==================== -->
+    <!-- Estilos de Tailwind Compilados (Estático) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- ==================== OPTIMIZACIÓN DE RENDIMIENTO ==================== -->
     <link rel="preload" as="image" href="https://limpyzas.com/img/portada.webp" type="image/webp" fetchpriority="high">
 
     <!-- ==================== OPEN GRAPH / FACEBOOK / WHATSAPP ==================== -->
@@ -35,7 +38,7 @@
     <!-- CDN para renderizar Markdown (Script diferido) -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 
-    <!-- ==================== DATOS ESTRUCTURADOS SCHEMA.ORG (SEO LOCAL GOOGLE) ==================== -->
+    <!-- ==================== DATOS ESTRUCTURADOS SCHEMA.ORG ==================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -86,38 +89,12 @@
     }
     </script>
     
-    <!-- Preconnect Fonts -->
+    <!-- Preconnect y Precarga de Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Precarga de tipografía asíncrona sin bloqueo de renderizado -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CDN de Tailwind con Plugin Typography integrado -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        marca: {
-                            teal: '#1A9E96',
-                            tealDark: '#137A74',
-                            green: '#8BC53F',
-                            forest: '#1B4D3E',
-                            light: '#F4F9F8',
-                            dark: '#1E293B',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Nunito', 'sans-serif'],
-                        heading: ['Quicksand', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         .fade-in-up {
             opacity: 0;
