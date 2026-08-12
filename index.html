@@ -858,7 +858,7 @@
         </div>
     </footer>
 
-<!-- Script principal UI y de Carga Dinámica desde contacto.json y faq.json -->
+    <!-- Script principal UI y de Carga Dinámica desde contacto.json y faq.json -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // -------------------------------------------------------------
@@ -917,7 +917,7 @@
                 .catch(err => console.log('Cargando valores por defecto HTML:', err));
 
             // -------------------------------------------------------------
-            // Carga Dinámica de FAQ (Maqueta 100% Idéntica)
+            // Carga Dinámica de FAQ (Con formato vertical ordenado)
             // -------------------------------------------------------------
             fetch('/data/faq.json')
                 .then(res => res.json())
@@ -930,19 +930,27 @@
                             const details = document.createElement('details');
                             details.className = 'group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal shadow-sm transition-all hover:border-teal-300';
                             
+                            // Convertir Markdown a HTML
+                            let htmlRespuesta = (typeof marked !== 'undefined') ? marked.parse(item.respuesta) : item.respuesta;
+
+                            // Formatear listas para que mantengan estructura vertical
+                            htmlRespuesta = htmlRespuesta.replace(/<ul>/g, '<ul class="list-disc pl-5 space-y-2 my-3 block">');
+                            htmlRespuesta = htmlRespuesta.replace(/<li>/g, '<li class="mb-1 text-slate-700">');
+                            htmlRespuesta = htmlRespuesta.replace(/<p>/g, '<p class="mb-3 text-slate-700 leading-relaxed">');
+
                             details.innerHTML = `
                                 <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
                                     <span>${item.pregunta}</span>
                                     <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
                                 </summary>
-                                <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed space-y-4 font-normal border-t border-slate-100/60 pt-1">
-                                    ${item.respuesta}
+                                <div class="px-6 pb-6 border-t border-slate-100/60 pt-4 text-xs sm:text-sm">
+                                    ${htmlRespuesta}
                                 </div>
                             `;
                             faqContainer.appendChild(details);
                         });
 
-                        // Sincronizar datos de contacto dentro del FAQ
+                        // Sincronizar datos de contacto (teléfono y correo) dentro del FAQ
                         fetch('/data/contacto.json')
                             .then(r => r.json())
                             .then(cData => aplicarDatosContacto(cData));
