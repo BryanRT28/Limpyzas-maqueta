@@ -30,6 +30,8 @@
     <meta name="twitter:description" content="Especialistas en limpieza de departamentos, casas y hospedajes Airbnb en Lima.">
     <meta name="twitter:image" content="https://limpyzas.com/img/portada.webp">
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <!-- ==================== DATOS ESTRUCTURADOS SCHEMA.ORG (SEO LOCAL GOOGLE) ==================== -->
     <script type="application/ld+json">
     {
@@ -910,7 +912,7 @@
                 .catch(err => console.log('Cargando valores por defecto HTML:', err));
 
             // -------------------------------------------------------------
-            // Carga Dinámica de FAQ desde faq.json (Mantiene Maqueta Original)
+            // Carga Dinámica de FAQ con Marked.js (Soporta Markdown para Decap CMS)
             // -------------------------------------------------------------
             fetch('/data/faq.json')
                 .then(res => res.json())
@@ -923,19 +925,24 @@
                             const details = document.createElement('details');
                             details.className = 'group bg-white rounded-2xl border border-slate-200 overflow-hidden reveal shadow-sm transition-all hover:border-teal-300';
                             
+                            // Convierte el Markdown ingresado por el cliente en HTML
+                            const htmlRespuesta = (typeof marked !== 'undefined') 
+                                ? marked.parse(item.respuesta) 
+                                : item.respuesta;
+
                             details.innerHTML = `
                                 <summary class="w-full p-6 cursor-pointer select-none flex justify-between items-center font-bold text-slate-900 text-base sm:text-lg">
                                     <span>${item.pregunta}</span>
                                     <span class="text-teal-600 transition-transform group-open:rotate-180 shrink-0 ml-1">▼</span>
                                 </summary>
-                                <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed space-y-4 font-normal border-t border-slate-100/60 pt-3">
-                                    ${item.respuesta}
+                                <div class="px-6 pb-6 text-slate-700 text-xs sm:text-sm leading-relaxed space-y-3 font-normal border-t border-slate-100/60 pt-3">
+                                    ${htmlRespuesta}
                                 </div>
                             `;
                             faqContainer.appendChild(details);
                         });
 
-                        // Re-sincronizar teléfono y correo en caso el texto tenga clases .js-telefono-txt o .js-correo-txt
+                        // Sincronizar datos de contacto (teléfono y correo) dentro del FAQ
                         fetch('/data/contacto.json')
                             .then(r => r.json())
                             .then(cData => aplicarDatosContacto(cData));
