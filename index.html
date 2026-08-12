@@ -11,10 +11,16 @@
     <meta name="author" content="Limpyzas">
     <link rel="canonical" href="https://limpyzas.com/">
     
-    <!-- Favicon -->
+    <!-- Favicon (WebP + PNG Estándar para Google) -->
+    <link rel="icon" type="image/png" sizes="192x192" href="img/logo.png">
     <link rel="icon" type="image/webp" href="img/favicon.webp">
+    <link rel="apple-touch-icon" href="img/logo.png">
 
-    <!-- ==================== OPTIMIZACIÓN DE RENDIMIENTO (LCP & ASSETS) ==================== -->
+    <!-- ==================== ESTILOS Y RENDIMIENTO ==================== -->
+    <!-- Hoja de estilos estática compilada con Tailwind CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Precarga de imagen LCP -->
     <link rel="preload" as="image" href="https://limpyzas.com/img/portada.webp" type="image/webp" fetchpriority="high">
 
     <!-- ==================== OPEN GRAPH / FACEBOOK / WHATSAPP ==================== -->
@@ -23,6 +29,8 @@
     <meta property="og:title" content="Limpyzas | Servicios de Limpieza Profesional en Lima">
     <meta property="og:description" content="Soluciones de limpieza por horas, profundas y turnover para Airbnb en Lima. Agende su servicio hoy.">
     <meta property="og:image" content="https://limpyzas.com/img/portada.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="es_PE">
     <meta property="og:site_name" content="Limpyzas">
 
@@ -35,13 +43,14 @@
     <!-- CDN para renderizar Markdown (Script diferido) -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 
-    <!-- ==================== DATOS ESTRUCTURADOS SCHEMA.ORG (SEO LOCAL GOOGLE) ==================== -->
+    <!-- ==================== DATOS ESTRUCTURADOS SCHEMA.ORG ==================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "CleaningService",
       "name": "Limpyzas",
-      "image": "https://limpyzas.com/img/logo.webp",
+      "image": "https://limpyzas.com/img/portada.webp",
+      "logo": "https://limpyzas.com/img/logo.png",
       "@id": "https://limpyzas.com/#organization",
       "url": "https://limpyzas.com/",
       "telephone": "+51908643336",
@@ -86,38 +95,16 @@
     }
     </script>
     
-    <!-- Preconnect Fonts -->
+    <!-- ==================== GOOGLE FONTS (NO BLOQUEANTE) ==================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Precarga de tipografía asíncrona sin bloqueo de renderizado -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap">
+    </noscript>
 
-    <!-- CDN de Tailwind con Plugin Typography integrado -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        marca: {
-                            teal: '#1A9E96',
-                            tealDark: '#137A74',
-                            green: '#8BC53F',
-                            forest: '#1B4D3E',
-                            light: '#F4F9F8',
-                            dark: '#1E293B',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Nunito', 'sans-serif'],
-                        heading: ['Quicksand', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Estilos de animación personalizados -->
     <style>
         .fade-in-up {
             opacity: 0;
