@@ -37,5 +37,5 @@ collections:
             widget: "list"
             summary: "{{fields.pregunta}}"
             fields:
-              - { label: "Título de la Pregunta", name: "pregunta", widget: "string" }
-              - { label: "Respuesta del Cliente", name: "respuesta", widget: "text" }
+              - { label: "Pregunta", name: "pregunta", widget: "string" }
+              - { label: "Respuesta", name: "respuesta", widget: "markdown" }
