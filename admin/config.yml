@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
-  branch: main # Cambia a 'master' si tu rama en Git se llama así
+  name: github
+  repo: BryanRT28/Limpyzas-maqueta-main  # Tu usuario y el nombre de tu repositorio actual
+  branch: main
+  base_url: https://decap-cms-oauth.vercel.app
 
 media_folder: "img"
 public_folder: "/img"
